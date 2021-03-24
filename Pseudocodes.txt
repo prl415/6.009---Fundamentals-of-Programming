@@ -1,0 +1,63 @@
+DESIGN NOTES
+------------------
+Representing kernels:
+represent NxN kernels as a list with length N which consists of lists with lengths N
+
+Retargeting:
+	-Create a copy of the image
+	-Compute the energy map by calling the edges method
+	-By using a helper function, find the lowest energy column
+	-By using another helper function, remove that column
+	-Repeat this process until to get the desired width
+
+Finding the Minimum Energy Column:
+	Loop over the width:
+		Loop over the height for given width:
+			Sum all of the pixel values 
+		Compare the summation result with the previously calculated column values
+		if it is smaller than previous result it will be our new min_energy column:
+			Save the result and x value
+
+Seam Carving:
+	#This will be very hard but also very fruitful
+	-Create a copy of the image
+	-Compute the energy map by caling the edges method
+	-By using the energy map now we have to compute cumulative energy map and get list of indexes of the pixels on the least important
+	(min. energy path) seam
+	-By using this list remove the path from the image
+	-Repat this process until to reach the desired width
+
+Finding the least important seam:
+	#Producing the cumulative energy map
+	Loop over the height
+		Loop over the width:
+			-Choose the minimum pixel value among the above neighbor pixels and sum both of these
+			-For middle pixel above 3 neighbors for edge pixels above 2 neighors
+	-By using produced cumulative energy map find the minimum cost path 
+	with the help of a helper function and return the positions of the pixels
+	on the path as a list
+
+Finding the Minimum cost path:
+	-By using the same method in the cumulative_energy_map function start from bottom and follow the minimum pixel values in each row
+	while adding the positions of these minimum pixel values to a list until reaching the pixel at the top row
+	-Return the list 
+
+Applying filters to the color images:
+	-With the help of a helper function split the image into the 3 grayscale images (one for each: R G B)
+	-Apply filters to each image
+	-Merge this filter applied images and return as a one color image
+
+Splitting images:
+	-Loop over each pixel value (which is a tuple with 3 elements) of color image and save the pixel values to 3 different variable
+	-Return the 3 variables
+
+Merging Images:
+	-Loop over 3 grayscale images at the same time and save the pixel value of each them into a new image 
+	-Return the result
+
+Directional emboss:
+	-Separate the given color image to R G B grayscale images
+	-Apply the kernel to the each grayscale images
+	-Merge the grayscale images
+	-return the result
+
