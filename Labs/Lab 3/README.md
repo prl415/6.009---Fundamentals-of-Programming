@@ -1,3 +1,3 @@
 - This folder contains solution to the Circuit Solver lab
 - Basically by using kirchoff laws this code calculates the voltages and currents along each wire of given circuits. Equations created by using kirchoff laws are solved using substitution method
-- 25 tests are sin 18.904s
+- On an Apple Macbook Air M1/16 GB/8C - 8G system 25 tests are done in 18.904 seconds
