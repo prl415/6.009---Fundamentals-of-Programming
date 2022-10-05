@@ -1,0 +1,31 @@
+First server question
+------------------------
+bool_formula = [[('c', True)],
+                [('a', True), ('d', True)],
+                [('b', False), ('a', True)],
+                [('a', False), ('e', True), ('d', False)]
+                ]
+
+Second server question
+--------------------------
+-> a and ((not b or c) and (not b or d))
+-> a and (not b or c) and (not b or d)
+bool_formula = [[('a', True)],
+             	[('b', False), ('c', True)],
+             	[('b', False), ('d', True)]
+               ]
+
+satisfying_assignment(formula)
+--------------------------------
+-For given formula search for unit clauses. If there exists a unit clause for example ['x', b]. Set x = b. Check
+out for conflicts such as x = not b. If a conflict is found, this means no soln. exists, Return None
+-Otherwise update the formula according to x = b, and recurse to find out whether a soln. exists
+-No unit clauses. So we will assign a truth value to a variable and backtrack recursively to find a soln.
+-Choose a variable and assign a truth value to it, lets assign True
+-Now we have to check whether there is a conflict. For example we choose x to be true but  
+ there is a unit clause which says that x has to be False. This is a conflict and no solution exists for our problem
+ so return None
+-If there is not conflict, update formula by using x = True, and recurse by using updated formula
+-If there is no soln. for x = True case, apply same steps for x = False. If there is no soln. for that case, then
+there is no soln. for given formula. Return None. 
+-Otherwise, if a soln. exists then 
