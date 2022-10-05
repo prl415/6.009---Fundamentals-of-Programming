@@ -1,0 +1,36 @@
+<svg width="420" height="240" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>Layer 1</title>
+  <text fill="black" id="svg_1" font-family="Arial" font-size="11px" text-anchor="start" y="225" x="216">C</text>
+  <text fill="black" id="svg_2" font-family="Arial" font-size="11px" text-anchor="start" y="53" x="216">B</text>
+  <text fill="black" id="svg_3" font-family="Arial" font-size="11px" text-anchor="start" y="54" x="49">A</text>
+  <line id="svg_4" stroke="rgb(0, 0, 0)" stroke-linecap="square" stroke-width="2" y2="80" x2="60" y1="60" x1="60"/>
+  <line id="svg_5" stroke="rgb(0, 0, 0)" stroke-linecap="square" stroke-width="2" y2="210" x2="380" y1="210" x1="60"/>
+  <line id="svg_6" stroke="rgb(0, 0, 0)" stroke-linecap="square" stroke-width="2" y2="132" x2="380" y1="60" x1="380"/>
+  <line id="svg_7" stroke="rgb(0, 0, 0)" stroke-linecap="square" stroke-width="2" y2="132" x2="390" y1="132" x1="370"/>
+  <line id="svg_8" stroke="rgb(0, 0, 0)" stroke-linecap="square" stroke-width="3" y2="138" x2="385" y1="138" x1="375"/>
+  <line id="svg_9" stroke="rgb(0, 0, 0)" stroke-linecap="square" stroke-width="2" y2="210" x2="380" y1="138" x1="380"/>
+  <text style="cursor: move;" fill="black" id="svg_10" font-family="Arial" font-size="12px" text-anchor="end" y="135" x="366">10 V</text>
+  <line id="svg_11" stroke="rgb(0, 0, 0)" stroke-linecap="square" stroke-width="2" y2="60" x2="280" y1="60" x1="220"/>
+  <line id="svg_12" stroke="rgb(0, 0, 0)" stroke-linecap="square" stroke-width="2" y2="60" x2="380" y1="60" x1="320"/>
+  <path id="svg_13" fill-opacity="0" fill="rgb(0, 0, 0)" stroke="rgb(0, 0, 0)" stroke-linecap="square" stroke-width="2" d="m280,60l2,0l3,-7l6,14l6,-14l6,14l6,-14l6,14l3,-7l2,0"/>
+  <text id="svg_14" font-family="Arial" font-size="11px" text-anchor="middle" y="43" x="300">7 Ω</text>
+  <line id="svg_15" stroke="rgb(0, 0, 0)" stroke-linecap="square" stroke-width="2" y2="115" x2="220" y1="60" x1="220"/>
+  <line id="svg_16" stroke="rgb(0, 0, 0)" stroke-linecap="square" stroke-width="2" y2="210" x2="220" y1="155" x1="220"/>
+  <path id="svg_17" fill-opacity="0" fill="rgb(0, 0, 0)" stroke="rgb(0, 0, 0)" stroke-linecap="square" stroke-width="2" d="m220,115l0,2l-7,3l14,6l-14,6l14,6l-14,6l14,6l-7,3l0,2"/>
+  <text id="svg_18" font-family="Arial" font-size="11px" text-anchor="end" y="135" x="206">2 Ω</text>
+  <line id="svg_19" stroke="rgb(0, 0, 0)" stroke-linecap="square" stroke-width="2" y2="60" x2="120" y1="60" x1="60"/>
+  <line id="svg_20" stroke="rgb(0, 0, 0)" stroke-linecap="square" stroke-width="2" y2="60" x2="220" y1="60" x1="160"/>
+  <path id="svg_21" fill-opacity="0" fill="rgb(0, 0, 0)" stroke="rgb(0, 0, 0)" stroke-linecap="square" stroke-width="2" d="m120,60l2,0l3,-7l6,14l6,-14l6,14l6,-14l6,14l3,-7l2,0"/>
+  <text id="svg_22" font-family="Arial" font-size="11px" text-anchor="middle" y="43" x="140">3 Ω</text>
+  <line id="svg_23" stroke="rgb(0, 0, 0)" stroke-linecap="square" stroke-width="2" y2="132" x2="60" y1="60" x1="60"/>
+  <line id="svg_24" stroke="rgb(0, 0, 0)" stroke-linecap="square" stroke-width="2" y2="132" x2="70" y1="132" x1="50"/>
+  <line id="svg_25" stroke="rgb(0, 0, 0)" stroke-linecap="square" stroke-width="3" y2="138" x2="65" y1="138" x1="55"/>
+  <line id="svg_26" stroke="rgb(0, 0, 0)" stroke-linecap="square" stroke-width="2" y2="210" x2="60" y1="138" x1="60"/>
+  <text style="cursor: move;" fill="black" id="svg_27" font-family="Arial" font-size="12px" text-anchor="end" y="135" x="46">5 V</text>
+  <ellipse id="svg_28" fill="rgb(0, 0, 0)" stroke="rgb(0, 0, 0)" stroke-width="2" ry="2" rx="2" cy="60" cx="60"/>
+  <ellipse id="svg_29" fill="rgb(0, 0, 0)" stroke="rgb(0, 0, 0)" stroke-width="2" ry="2" rx="2" cy="210" cx="220"/>
+  <ellipse id="svg_30" fill="rgb(0, 0, 0)" stroke="rgb(0, 0, 0)" stroke-width="2" ry="2" rx="2" cy="60" cx="220"/>
+ </g>
+</svg>
