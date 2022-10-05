@@ -1,1 +1,3 @@
-
+- This folder contains solution for the BACON Number Lab
+- The problem is a simplified version of recommendation systems. In this lab the relation between different nodes are investigated based on distance by using BREADTH FIRST SEARCH 
+- On an Apple Macbook Air M1/16 GB/8C - 8G system 17 tests are done in 12.436 seconds 
