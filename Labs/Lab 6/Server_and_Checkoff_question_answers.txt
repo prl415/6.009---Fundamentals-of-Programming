@@ -1,0 +1,47 @@
+1) [('the', 4496), ('to', 4209), ('of', 3719), ('and', 3606)]
+2) ['great', 'greater', 'greatest', 'greatly', 'grew', 'green']
+3) ['tears', 'tear', 'dear', 'hear', 'near', 'year', 'bear', 'fear', 'tea']
+4) [('recollectionit', 1), ('receipt', 4), ('recollect', 6), ('recent', 5)]
+
+How you were able to keep track of the prefix associated with each node without explicitly storing the prefix itself?
+-We don't have to store the entire word itself. We only need to know start of the node (Actually this is the root of
+our trie structure, which is created at the beginning by t = Trie()) and end of the branch. When we are adding a word
+or prefix to our trie structure we actually creating new nodes (actually sub tries). For each letter, a new node is created
+(totally len(words) new_nodes are created) and last of the nodes takes the value of the branch which represents the
+end of the branch. Start from root and take each letter when go to new_node. All letters of the word will be collected
+when node with value is reached (end of the branch that represents the word).
+
+The tradeoff between using iteration and recursion when implementing the __getitem__ method?
+Iteration is easy to implement. In recursive method, type of the current node has to be checked in for each call. 
+In iteration one type check is enough.
+
+How your implementation of __iter__ works?
+By using a recursive function that explore all of the branches of the trie. Function starts from the root of the trie with an empty
+string or tuple and recursively visits each child of the current node. If function goes to a child, letter or tuple will be stored.
+if end of the current branch is reached (2-cases: value of the current_node is not None or there is no child of the current node), 
+stored letters or tuples and value of the current_node will be yielded (If value of the current node is not None).
+
+How using your other methods helped in implementing autocomplete?
+I used three methods in autocomplete. For type checking I created a method that retuns the type of the trie. If type of the prefix
+and trie are not consistent, autocomplete raises TypeError.
+After passing type checking, there will exploration of the trie to find words which starts with the prefix. For that purpose, I created
+a method to get child of the current node which is pointed by a specific letter or 1-element tuple. By using that method and for loop on
+the letters of the prefix, node that represents the prefix is reached. If one of the letters of the prefix is not in trie, this means that 
+prefix is not in the trie. In that case, autocomplete returns empty list.
+After succesfully reaching the node representing the given prefix, __iter__ method will be used to get the words which starts with the 
+given prefix and their frequencies as a list of 2-element tuples. If max_count is None all of the list will be returned otherwise, list will
+be sorted according to the frequencies and max_count word-frequency pairs with highest frequencies will be returned.
+
+How your code for creating edits works?
+Edit creation is made by using a helper function called get_all_valid_edits(trie, prefix). By using giving rules and in method of the trie
+structure, all of the valid edits (that is edits in trie) is added to a list. After applying all edits, resulting list will be returned. 
+
+How your recursive matching works (without enumerating all words) for the word_filter implementation?
+For that purpose, I created additional helper function edit_pattern(pattern) to edit the given pattern to decrease amount of recursion. You see, 
+there is no difference between number of *s. One * and Ten adjacent *s are have same meaning. So edit_pattern replaces adjacent *s with one *. 
+After editing the pattern another helper function called get_matchings(node, pattern, current_word) is used to get words that match with the 
+pattern. It's a recursive function, which explore the branches of the trie by using pattern. If current character in the pattern is ? all of the
+childs of the current node will explored. If current character is an alphabet letter, child of the node which is pointed by that character
+will be explored. If current character is * all of the branches of the trie will be explored (2 cases: with * and without *). Base case in our
+recursive function is len(pattern) == 0. In that case if the value of the current node is not None, word that is represented by current branch
+matches with the pattern, so yield it otherwise yield Nothing.
