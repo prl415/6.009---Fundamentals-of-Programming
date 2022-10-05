@@ -1,0 +1,8 @@
+shortest_path_no_lefts(edges, start, end):
+	-Firstly, transformed the inputted graph
+	-Then, by using transformed graph remove all of the left turns
+	 by using checking cross and dot products
+	-At last, by using BFS find the shortest path from start
+	 to end if exists
+	-Return the found path, if there is no path return None
+	
