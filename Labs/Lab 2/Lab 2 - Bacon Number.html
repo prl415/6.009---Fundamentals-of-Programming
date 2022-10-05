@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)https://py.mit.edu/fall19/labs/lab2 -->
+<html class="no-touch"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>    .error_widget_wrapper {        background: inherit;        color: inherit;        border:none    }    .error_widget {        border-top: solid 2px;        border-bottom: solid 2px;        margin: 5px 0;        padding: 10px 40px;        white-space: pre-wrap;    }    .error_widget.ace_error, .error_widget_arrow.ace_error{        border-color: #ff5a5a    }    .error_widget.ace_warning, .error_widget_arrow.ace_warning{        border-color: #F1D817    }    .error_widget.ace_info, .error_widget_arrow.ace_info{        border-color: #5a5a5a    }    .error_widget.ace_ok, .error_widget_arrow.ace_ok{        border-color: #5aaa5a    }    .error_widget_arrow {        position: absolute;        border: solid 5px;        border-top-color: transparent!important;        border-right-color: transparent!important;        border-left-color: transparent!important;        top: -5px;    }</style><style id="ace-tm">.ace-tm .ace_gutter {background: #f0f0f0;color: #333;}.ace-tm .ace_print-margin {width: 1px;background: #e8e8e8;}.ace-tm .ace_fold {background-color: #6B72E6;}.ace-tm {background-color: #FFFFFF;color: black;}.ace-tm .ace_cursor {color: black;}.ace-tm .ace_invisible {color: rgb(191, 191, 191);}.ace-tm .ace_storage,.ace-tm .ace_keyword {color: blue;}.ace-tm .ace_constant {color: rgb(197, 6, 11);}.ace-tm .ace_constant.ace_buildin {color: rgb(88, 72, 246);}.ace-tm .ace_constant.ace_language {color: rgb(88, 92, 246);}.ace-tm .ace_constant.ace_library {color: rgb(6, 150, 14);}.ace-tm .ace_invalid {background-color: rgba(255, 0, 0, 0.1);color: red;}.ace-tm .ace_support.ace_function {color: rgb(60, 76, 114);}.ace-tm .ace_support.ace_constant {color: rgb(6, 150, 14);}.ace-tm .ace_support.ace_type,.ace-tm .ace_support.ace_class {color: rgb(109, 121, 222);}.ace-tm .ace_keyword.ace_operator {color: rgb(104, 118, 135);}.ace-tm .ace_string {color: rgb(3, 106, 7);}.ace-tm .ace_comment {color: rgb(76, 136, 107);}.ace-tm .ace_comment.ace_doc {color: rgb(0, 102, 255);}.ace-tm .ace_comment.ace_doc.ace_tag {color: rgb(128, 159, 191);}.ace-tm .ace_constant.ace_numeric {color: rgb(0, 0, 205);}.ace-tm .ace_variable {color: rgb(49, 132, 149);}.ace-tm .ace_xml-pe {color: rgb(104, 104, 91);}.ace-tm .ace_entity.ace_name.ace_function {color: #0000A2;}.ace-tm .ace_heading {color: rgb(12, 7, 255);}.ace-tm .ace_list {color:rgb(185, 6, 144);}.ace-tm .ace_meta.ace_tag {color:rgb(0, 22, 142);}.ace-tm .ace_string.ace_regex {color: rgb(255, 0, 0)}.ace-tm .ace_marker-layer .ace_selection {background: rgb(181, 213, 255);}.ace-tm.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px white;}.ace-tm .ace_marker-layer .ace_step {background: rgb(252, 255, 0);}.ace-tm .ace_marker-layer .ace_stack {background: rgb(164, 229, 101);}.ace-tm .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid rgb(192, 192, 192);}.ace-tm .ace_marker-layer .ace_active-line {background: rgba(0, 0, 0, 0.07);}.ace-tm .ace_gutter-active-line {background-color : #dcdcdc;}.ace-tm .ace_marker-layer .ace_selected-word {background: rgb(250, 250, 255);border: 1px solid rgb(200, 200, 250);}.ace-tm .ace_indent-guide {background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y;}
+/*# sourceURL=ace/css/ace-tm */</style><style id="ace_editor.css">.ace_br1 {border-top-left-radius    : 3px;}.ace_br2 {border-top-right-radius   : 3px;}.ace_br3 {border-top-left-radius    : 3px; border-top-right-radius:    3px;}.ace_br4 {border-bottom-right-radius: 3px;}.ace_br5 {border-top-left-radius    : 3px; border-bottom-right-radius: 3px;}.ace_br6 {border-top-right-radius   : 3px; border-bottom-right-radius: 3px;}.ace_br7 {border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-right-radius: 3px;}.ace_br8 {border-bottom-left-radius : 3px;}.ace_br9 {border-top-left-radius    : 3px; border-bottom-left-radius:  3px;}.ace_br10{border-top-right-radius   : 3px; border-bottom-left-radius:  3px;}.ace_br11{border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-left-radius:  3px;}.ace_br12{border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br13{border-top-left-radius    : 3px; border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br14{border-top-right-radius   : 3px; border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br15{border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px;}.ace_editor {position: relative;overflow: hidden;font: 12px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;direction: ltr;text-align: left;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);}.ace_scroller {position: absolute;overflow: hidden;top: 0;bottom: 0;background-color: inherit;-ms-user-select: none;-moz-user-select: none;-webkit-user-select: none;user-select: none;cursor: text;}.ace_content {position: absolute;box-sizing: border-box;min-width: 100%;contain: style size layout;}.ace_dragging .ace_scroller:before{position: absolute;top: 0;left: 0;right: 0;bottom: 0;content: '';background: rgba(250, 250, 250, 0.01);z-index: 1000;}.ace_dragging.ace_dark .ace_scroller:before{background: rgba(0, 0, 0, 0.01);}.ace_selecting, .ace_selecting * {cursor: text !important;}.ace_gutter {position: absolute;overflow : hidden;width: auto;top: 0;bottom: 0;left: 0;cursor: default;z-index: 4;-ms-user-select: none;-moz-user-select: none;-webkit-user-select: none;user-select: none;contain: style size layout;}.ace_gutter-active-line {position: absolute;left: 0;right: 0;}.ace_scroller.ace_scroll-left {box-shadow: 17px 0 16px -16px rgba(0, 0, 0, 0.4) inset;}.ace_gutter-cell {position: absolute;top: 0;left: 0;right: 0;padding-left: 19px;padding-right: 6px;background-repeat: no-repeat;}.ace_gutter-cell.ace_error {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABOFBMVEX/////////QRswFAb/Ui4wFAYwFAYwFAaWGAfDRymzOSH/PxswFAb/SiUwFAYwFAbUPRvjQiDllog5HhHdRybsTi3/Tyv9Tir+Syj/UC3////XurebMBIwFAb/RSHbPx/gUzfdwL3kzMivKBAwFAbbvbnhPx66NhowFAYwFAaZJg8wFAaxKBDZurf/RB6mMxb/SCMwFAYwFAbxQB3+RB4wFAb/Qhy4Oh+4QifbNRcwFAYwFAYwFAb/QRzdNhgwFAYwFAbav7v/Uy7oaE68MBK5LxLewr/r2NXewLswFAaxJw4wFAbkPRy2PyYwFAaxKhLm1tMwFAazPiQwFAaUGAb/QBrfOx3bvrv/VC/maE4wFAbRPBq6MRO8Qynew8Dp2tjfwb0wFAbx6eju5+by6uns4uH9/f36+vr/GkHjAAAAYnRSTlMAGt+64rnWu/bo8eAA4InH3+DwoN7j4eLi4xP99Nfg4+b+/u9B/eDs1MD1mO7+4PHg2MXa347g7vDizMLN4eG+Pv7i5evs/v79yu7S3/DV7/498Yv24eH+4ufQ3Ozu/v7+y13sRqwAAADLSURBVHjaZc/XDsFgGIBhtDrshlitmk2IrbHFqL2pvXf/+78DPokj7+Fz9qpU/9UXJIlhmPaTaQ6QPaz0mm+5gwkgovcV6GZzd5JtCQwgsxoHOvJO15kleRLAnMgHFIESUEPmawB9ngmelTtipwwfASilxOLyiV5UVUyVAfbG0cCPHig+GBkzAENHS0AstVF6bacZIOzgLmxsHbt2OecNgJC83JERmePUYq8ARGkJx6XtFsdddBQgZE2nPR6CICZhawjA4Fb/chv+399kfR+MMMDGOQAAAABJRU5ErkJggg==");background-repeat: no-repeat;background-position: 2px center;}.ace_gutter-cell.ace_warning {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAmVBMVEX///8AAAD///8AAAAAAABPSzb/5sAAAAB/blH/73z/ulkAAAAAAAD85pkAAAAAAAACAgP/vGz/rkDerGbGrV7/pkQICAf////e0IsAAAD/oED/qTvhrnUAAAD/yHD/njcAAADuv2r/nz//oTj/p064oGf/zHAAAAA9Nir/tFIAAAD/tlTiuWf/tkIAAACynXEAAAAAAAAtIRW7zBpBAAAAM3RSTlMAABR1m7RXO8Ln31Z36zT+neXe5OzooRDfn+TZ4p3h2hTf4t3k3ucyrN1K5+Xaks52Sfs9CXgrAAAAjklEQVR42o3PbQ+CIBQFYEwboPhSYgoYunIqqLn6/z8uYdH8Vmdnu9vz4WwXgN/xTPRD2+sgOcZjsge/whXZgUaYYvT8QnuJaUrjrHUQreGczuEafQCO/SJTufTbroWsPgsllVhq3wJEk2jUSzX3CUEDJC84707djRc5MTAQxoLgupWRwW6UB5fS++NV8AbOZgnsC7BpEAAAAABJRU5ErkJggg==");background-position: 2px center;}.ace_gutter-cell.ace_info {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAAAAAA6mKC9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAJ0Uk5TAAB2k804AAAAPklEQVQY02NgIB68QuO3tiLznjAwpKTgNyDbMegwisCHZUETUZV0ZqOquBpXj2rtnpSJT1AEnnRmL2OgGgAAIKkRQap2htgAAAAASUVORK5CYII=");background-position: 2px center;}.ace_dark .ace_gutter-cell.ace_info {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAJFBMVEUAAAChoaGAgIAqKiq+vr6tra1ZWVmUlJSbm5s8PDxubm56enrdgzg3AAAAAXRSTlMAQObYZgAAAClJREFUeNpjYMAPdsMYHegyJZFQBlsUlMFVCWUYKkAZMxZAGdxlDMQBAG+TBP4B6RyJAAAAAElFTkSuQmCC");}.ace_scrollbar {contain: strict;position: absolute;right: 0;bottom: 0;z-index: 6;}.ace_scrollbar-inner {position: absolute;cursor: text;left: 0;top: 0;}.ace_scrollbar-v{overflow-x: hidden;overflow-y: scroll;top: 0;}.ace_scrollbar-h {overflow-x: scroll;overflow-y: hidden;left: 0;}.ace_print-margin {position: absolute;height: 100%;}.ace_text-input {position: absolute;z-index: 0;width: 0.5em;height: 1em;opacity: 0;background: transparent;-moz-appearance: none;appearance: none;border: none;resize: none;outline: none;overflow: hidden;font: inherit;padding: 0 1px;margin: 0 -1px;contain: strict;-ms-user-select: text;-moz-user-select: text;-webkit-user-select: text;user-select: text;white-space: pre!important;}.ace_text-input.ace_composition {background: transparent;color: inherit;z-index: 1000;opacity: 1;}.ace_composition_placeholder { color: transparent }.ace_composition_marker { border-bottom: 1px solid;position: absolute;border-radius: 0;margin-top: 1px;}[ace_nocontext=true] {transform: none!important;filter: none!important;perspective: none!important;clip-path: none!important;mask : none!important;contain: none!important;perspective: none!important;mix-blend-mode: initial!important;z-index: auto;}.ace_layer {z-index: 1;position: absolute;overflow: hidden;word-wrap: normal;white-space: pre;height: 100%;width: 100%;box-sizing: border-box;pointer-events: none;}.ace_gutter-layer {position: relative;width: auto;text-align: right;pointer-events: auto;height: 1000000px;contain: style size layout;}.ace_text-layer {font: inherit !important;position: absolute;height: 1000000px;width: 1000000px;contain: style size layout;}.ace_text-layer > .ace_line, .ace_text-layer > .ace_line_group {contain: style size layout;position: absolute;top: 0;left: 0;right: 0;}.ace_hidpi .ace_text-layer,.ace_hidpi .ace_gutter-layer,.ace_hidpi .ace_content,.ace_hidpi .ace_gutter {contain: strict;will-change: transform;}.ace_hidpi .ace_text-layer > .ace_line, .ace_hidpi .ace_text-layer > .ace_line_group {contain: strict;}.ace_cjk {display: inline-block;text-align: center;}.ace_cursor-layer {z-index: 4;}.ace_cursor {z-index: 4;position: absolute;box-sizing: border-box;border-left: 2px solid;transform: translatez(0);}.ace_multiselect .ace_cursor {border-left-width: 1px;}.ace_slim-cursors .ace_cursor {border-left-width: 1px;}.ace_overwrite-cursors .ace_cursor {border-left-width: 0;border-bottom: 1px solid;}.ace_hidden-cursors .ace_cursor {opacity: 0.2;}.ace_smooth-blinking .ace_cursor {transition: opacity 0.18s;}.ace_animate-blinking .ace_cursor {animation-duration: 1000ms;animation-timing-function: step-end;animation-name: blink-ace-animate;animation-iteration-count: infinite;}.ace_animate-blinking.ace_smooth-blinking .ace_cursor {animation-duration: 1000ms;animation-timing-function: ease-in-out;animation-name: blink-ace-animate-smooth;}@keyframes blink-ace-animate {from, to { opacity: 1; }60% { opacity: 0; }}@keyframes blink-ace-animate-smooth {from, to { opacity: 1; }45% { opacity: 1; }60% { opacity: 0; }85% { opacity: 0; }}.ace_marker-layer .ace_step, .ace_marker-layer .ace_stack {position: absolute;z-index: 3;}.ace_marker-layer .ace_selection {position: absolute;z-index: 5;}.ace_marker-layer .ace_bracket {position: absolute;z-index: 6;}.ace_marker-layer .ace_active-line {position: absolute;z-index: 2;}.ace_marker-layer .ace_selected-word {position: absolute;z-index: 4;box-sizing: border-box;}.ace_line .ace_fold {box-sizing: border-box;display: inline-block;height: 11px;margin-top: -2px;vertical-align: middle;background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAJCAYAAADU6McMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJpJREFUeNpi/P//PwOlgAXGYGRklAVSokD8GmjwY1wasKljQpYACtpCFeADcHVQfQyMQAwzwAZI3wJKvCLkfKBaMSClBlR7BOQikCFGQEErIH0VqkabiGCAqwUadAzZJRxQr/0gwiXIal8zQQPnNVTgJ1TdawL0T5gBIP1MUJNhBv2HKoQHHjqNrA4WO4zY0glyNKLT2KIfIMAAQsdgGiXvgnYAAAAASUVORK5CYII="),url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAA3CAYAAADNNiA5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACJJREFUeNpi+P//fxgTAwPDBxDxD078RSX+YeEyDFMCIMAAI3INmXiwf2YAAAAASUVORK5CYII=");background-repeat: no-repeat, repeat-x;background-position: center center, top left;color: transparent;border: 1px solid black;border-radius: 2px;cursor: pointer;pointer-events: auto;}.ace_dark .ace_fold {}.ace_fold:hover{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAJCAYAAADU6McMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJpJREFUeNpi/P//PwOlgAXGYGRklAVSokD8GmjwY1wasKljQpYACtpCFeADcHVQfQyMQAwzwAZI3wJKvCLkfKBaMSClBlR7BOQikCFGQEErIH0VqkabiGCAqwUadAzZJRxQr/0gwiXIal8zQQPnNVTgJ1TdawL0T5gBIP1MUJNhBv2HKoQHHjqNrA4WO4zY0glyNKLT2KIfIMAAQsdgGiXvgnYAAAAASUVORK5CYII="),url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAA3CAYAAADNNiA5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACBJREFUeNpi+P//fz4TAwPDZxDxD5X4i5fLMEwJgAADAEPVDbjNw87ZAAAAAElFTkSuQmCC");}.ace_tooltip {background-color: #FFF;background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.1));border: 1px solid gray;border-radius: 1px;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);color: black;max-width: 100%;padding: 3px 4px;position: fixed;z-index: 999999;box-sizing: border-box;cursor: default;white-space: pre;word-wrap: break-word;line-height: normal;font-style: normal;font-weight: normal;letter-spacing: normal;pointer-events: none;}.ace_folding-enabled > .ace_gutter-cell {padding-right: 13px;}.ace_fold-widget {box-sizing: border-box;margin: 0 -12px 0 1px;display: none;width: 11px;vertical-align: top;background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAANElEQVR42mWKsQ0AMAzC8ixLlrzQjzmBiEjp0A6WwBCSPgKAXoLkqSot7nN3yMwR7pZ32NzpKkVoDBUxKAAAAABJRU5ErkJggg==");background-repeat: no-repeat;background-position: center;border-radius: 3px;border: 1px solid transparent;cursor: pointer;}.ace_folding-enabled .ace_fold-widget {display: inline-block;   }.ace_fold-widget.ace_end {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAANElEQVR42m3HwQkAMAhD0YzsRchFKI7sAikeWkrxwScEB0nh5e7KTPWimZki4tYfVbX+MNl4pyZXejUO1QAAAABJRU5ErkJggg==");}.ace_fold-widget.ace_closed {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAGCAYAAAAG5SQMAAAAOUlEQVR42jXKwQkAMAgDwKwqKD4EwQ26sSOkVWjgIIHAzPiCgaqiqnJHZnKICBERHN194O5b9vbLuAVRL+l0YWnZAAAAAElFTkSuQmCCXA==");}.ace_fold-widget:hover {border: 1px solid rgba(0, 0, 0, 0.3);background-color: rgba(255, 255, 255, 0.2);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);}.ace_fold-widget:active {border: 1px solid rgba(0, 0, 0, 0.4);background-color: rgba(0, 0, 0, 0.05);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);}.ace_dark .ace_fold-widget {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHklEQVQIW2P4//8/AzoGEQ7oGCaLLAhWiSwB146BAQCSTPYocqT0AAAAAElFTkSuQmCC");}.ace_dark .ace_fold-widget.ace_end {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAH0lEQVQIW2P4//8/AxQ7wNjIAjDMgC4AxjCVKBirIAAF0kz2rlhxpAAAAABJRU5ErkJggg==");}.ace_dark .ace_fold-widget.ace_closed {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAHElEQVQIW2P4//+/AxAzgDADlOOAznHAKgPWAwARji8UIDTfQQAAAABJRU5ErkJggg==");}.ace_dark .ace_fold-widget:hover {box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);background-color: rgba(255, 255, 255, 0.1);}.ace_dark .ace_fold-widget:active {box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);}.ace_inline_button {border: 1px solid lightgray;display: inline-block;margin: -1px 8px;padding: 0 5px;pointer-events: auto;cursor: pointer;}.ace_inline_button:hover {border-color: gray;background: rgba(200,200,200,0.2);display: inline-block;pointer-events: auto;}.ace_fold-widget.ace_invalid {background-color: #FFB4B4;border-color: #DE5555;}.ace_fade-fold-widgets .ace_fold-widget {transition: opacity 0.4s ease 0.05s;opacity: 0;}.ace_fade-fold-widgets:hover .ace_fold-widget {transition: opacity 0.05s ease 0.05s;opacity:1;}.ace_underline {text-decoration: underline;}.ace_bold {font-weight: bold;}.ace_nobold .ace_bold {font-weight: normal;}.ace_italic {font-style: italic;}.ace_error-marker {background-color: rgba(255, 0, 0,0.2);position: absolute;z-index: 9;}.ace_highlight-marker {background-color: rgba(255, 255, 0,0.2);position: absolute;z-index: 8;}
+/*# sourceURL=ace/css/ace_editor.css */</style>
+<!-- This page was generated by CAT-SOOP 2020.2.0.dev76.  miau. -->
+
+<title>6.009 Fall 2019</title>
+<link href="./Lab 2 - Bacon Number_files/logo.gif" rel="icon" type="image/gif">
+<!-- include catsoop base css -->
+<link href="./Lab 2 - Bacon Number_files/base.css" rel="stylesheet" type="text/css">
+<!-- set up JS namespace for catsoop -->
+<script type="text/javascript">
+    // @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3
+    var catsoop = {plugins: {}};
+
+    function toggleResponsiveHeader(){
+        document.getElementsByTagName('header')[0].classList.toggle('responsive');
+    }
+
+    document.addEventListener('DOMContentLoaded', function(){
+        var menu_boxes = document.getElementsByClassName('dropdown-checkbox');
+        for(var i=0; i<menu_boxes.length; i++){
+            menu_boxes[i].checked = false;
+        }
+    });
+
+    function clearMenu(menu){
+       menu.children[1].checked = false;
+    }
+    // @license-end
+    </script>
+<!-- load in katex and mathjax, and CAT-SOOP-specific math rendering  -->
+<script src="./Lab 2 - Bacon Number_files/katex.min.js.indir" type="text/javascript"></script>
+<link href="./Lab 2 - Bacon Number_files/katex.min.css" rel="stylesheet" type="text/css">
+<script src="./Lab 2 - Bacon Number_files/MathJax.js.indir" type="text/javascript"></script>
+<script src="./Lab 2 - Bacon Number_files/cs_math.js.indir" type="text/javascript"></script>
+<!-- load in diagram stuff -->
+<script src="./Lab 2 - Bacon Number_files/cs_diagrams.js.indir" type="text/javascript"></script>
+<script type="text/javascript">
+        catsoop.diagram_sources = {};
+    </script>
+<!-- Syntax Highlighting -->
+<script src="./Lab 2 - Bacon Number_files/cs_highlight.pack.min.js.indir" type="text/javascript"></script>
+<script type="text/javascript">
+    // @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3
+      hljs.initHighlightingOnLoad();
+    // @license-end
+    </script>
+<style>
+      :root {
+        --cs-base-bg-color: #039bba;
+        --cs-light-bg-color: #33cded;
+        --cs-base-font-color: #fff;
+        --cs-light-font-color: #000;
+    }
+    </style>
+<!--JS for questions-->
+<script src="./Lab 2 - Bacon Number_files/ace.js.indir" type="text/javascript"></script>
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<style type="text/css">/*
+ * contextMenu.js v 1.4.0
+ * Author: Sudhanshu Yadav
+ * s-yadav.github.com
+ * Copyright (c) 2013 Sudhanshu Yadav.
+ * Dual licensed under the MIT and GPL licenses
+**/
+
+.iw-contextMenu {
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.10) !important;
+    border: 1px solid #c8c7cc !important;
+    border-radius: 11px !important;
+    display: none;
+    z-index: 1000000132;
+    max-width: 300px !important;
+    width: auto !important;
+}
+
+.dark-mode .iw-contextMenu,
+.TnITTtw-dark-mode.iw-contextMenu,
+.TnITTtw-dark-mode .iw-contextMenu {
+    border-color: #747473 !important;
+}
+
+.iw-cm-menu {
+    background: #fff !important;
+    color: #000 !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    overflow: visible !important;
+}
+
+.dark-mode .iw-cm-menu,
+.TnITTtw-dark-mode.iw-cm-menu,
+.TnITTtw-dark-mode .iw-cm-menu {
+    background: #525251 !important;
+    color: #FFF !important;
+}
+
+.iw-curMenu {
+}
+
+.iw-cm-menu li {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, Ubuntu, sans-serif !important;
+    list-style: none !important;
+    padding: 10px !important;
+    padding-right: 20px !important;
+    border-bottom: 1px solid #c8c7cc !important;
+    font-weight: 400 !important;
+    cursor: pointer !important;
+    position: relative !important;
+    font-size: 14px !important;
+    margin: 0 !important;
+    line-height: inherit !important;
+    border-radius: 0 !important;
+    display: block !important;
+}
+
+.dark-mode .iw-cm-menu li, .TnITTtw-dark-mode .iw-cm-menu li {
+    border-bottom-color: #747473 !important;
+}
+
+.iw-cm-menu li:first-child {
+    border-top-left-radius: 11px !important;
+    border-top-right-radius: 11px !important;
+}
+
+.iw-cm-menu li:last-child {
+    border-bottom-left-radius: 11px !important;
+    border-bottom-right-radius: 11px !important;
+    border-bottom: none !important;
+}
+
+.iw-mOverlay {
+    position: absolute !important;
+    width: 100% !important;
+    height: 100% !important;
+    top: 0px !important;
+    left: 0px !important;
+    background: #FFF !important;
+    opacity: .5 !important;
+}
+
+.iw-contextMenu li.iw-mDisable {
+    opacity: 0.3 !important;
+    cursor: default !important;
+}
+
+.iw-mSelected {
+    background-color: #F6F6F6 !important;
+}
+
+.dark-mode .iw-mSelected, .TnITTtw-dark-mode .iw-mSelected {
+    background-color: #676766 !important;
+}
+
+.iw-cm-arrow-right {
+    width: 0 !important;
+    height: 0 !important;
+    border-top: 5px solid transparent !important;
+    border-bottom: 5px solid transparent !important;
+    border-left: 5px solid #000 !important;
+    position: absolute !important;
+    right: 5px !important;
+    top: 50% !important;
+    margin-top: -5px !important;
+}
+
+.dark-mode .iw-cm-arrow-right, .TnITTtw-dark-mode .iw-cm-arrow-right {
+    border-left-color: #FFF !important;
+}
+
+.iw-mSelected > .iw-cm-arrow-right {
+}
+
+/*context menu css end */</style><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover, .MJXp-munder {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > *, .MJXp-munder > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style type="text/css">@-webkit-keyframes load4 {
+    0%,
+    100% {
+        box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+    }
+    12.5% {
+        box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+    }
+    25% {
+        box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+    }
+    37.5% {
+        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+    }
+    50% {
+        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+    }
+    62.5% {
+        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+    }
+    75% {
+        box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+    }
+    87.5% {
+        box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+    }
+}
+
+@keyframes load4 {
+    0%,
+    100% {
+        box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+    }
+    12.5% {
+        box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+    }
+    25% {
+        box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+    }
+    37.5% {
+        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+    }
+    50% {
+        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+    }
+    62.5% {
+        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+    }
+    75% {
+        box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+    }
+    87.5% {
+        box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+    }
+}</style><style type="text/css">/* This is not a zero-length file! */</style></head>
+<body style="margin: 0px;"><div id="MathJax_Message" style="display: none;"></div>
+<header id="cs_header">
+<div class="nav-container">
+<div class="cs_header_text"><a href="https://py.mit.edu/fall19"><img src="./Lab 2 - Bacon Number_files/logo.gif">&nbsp;6.009</a></div>
+<a class="cs_top_menu_item" href="https://py.mit.edu/fall19/information">Information/Policies</a>
+<a class="cs_top_menu_item" href="https://py.mit.edu/fall19/progress">Progress</a>
+<div class="dropdown" onmouseleave="clearMenu(this);">
+<label class="dropbtn cs_top_menu_item" for="cs_menu_e4114069c57f1397aef2d5dd61ce9032">Help<span class="downarrow">▼</span></label>
+<input checked="false" class="dropdown-checkbox" id="cs_menu_e4114069c57f1397aef2d5dd61ce9032" type="checkbox">
+<div class="dropdown-content">
+<a class="cs_top_menu_item" href="https://piazza.com/mit/fall2019/6009">Piazza</a>
+<a class="cs_top_menu_item" href="https://py.mit.edu/fall19/queue/">Help Queue</a>
+<a class="cs_top_menu_item" href="https://py.mit.edu/fall19/python">Accessing/Installing Python</a>
+<a class="cs_top_menu_item" href="https://py.mit.edu/fall19/style">Style Guidelines</a>
+<a class="cs_top_menu_item" href="https://py.mit.edu/fall19/otherhelp">Other Help</a></div></div>
+<a class="cs_top_menu_item" href="https://py.mit.edu/fall19/labs/lab2?loginaction=login">Log In</a><a class="icon" href="javascript:void(0);" onclick="toggleResponsiveHeader()">☰</a>
+</div>
+</header>
+<div class="cs_navigation cs_top_navigation" id="cs_top_navigation"><span class="line"><a href="https://py.mit.edu/fall19">Home</a></span> <span class="cs_nav_separator">/</span> <span class="line"><a href="https://py.mit.edu/fall19/labs/lab2">Lab 2: Bacon Number</a></span></div>
+<main class="cs_body" id="cs_body">
+<div class="cs_left_menu"></div>
+<div class="cs_content">
+<div class="cs_page_body">
+<center><h1 class="cs_content_header">Lab 2: Bacon Number</h1></center>
+<div class="response" id="catsoop_login_box">
+<b><center>You are not logged in.</center></b><br>
+If you are a current student, please <a href="https://py.mit.edu/fall19/labs/lab2?loginaction=login">Log
+In</a> for full access to the web site.<br>Note that this link will take you to
+an external site (<tt>https://shimmer.csail.mit.edu</tt>) to authenticate, and then you will be redirected
+back to this page.
+</div>
+<p></p><h2>Table of Contents</h2><ul><li><a href="https://py.mit.edu/fall19/labs/lab2#_preparation">1) Preparation</a></li><li><a href="https://py.mit.edu/fall19/labs/lab2#_introduction">2) Introduction</a></li><ul><li><a href="https://py.mit.edu/fall19/labs/lab2#_the_film_database">2.1) The Film Database</a></li><li><a href="https://py.mit.edu/fall19/labs/lab2#_the_names_database">2.2) The Names Database</a></li><li><a href="https://py.mit.edu/fall19/labs/lab2#_using_the_ui">2.3) Using the UI</a></li><li><a href="https://py.mit.edu/fall19/labs/lab2#_lab_py_and_test_py">2.4) <tt>lab.py</tt> and <tt>test.py</tt></a></li></ul><li><a href="https://py.mit.edu/fall19/labs/lab2#_acting_together">3) Acting Together</a></li><li><a href="https://py.mit.edu/fall19/labs/lab2#_bacon_number">4) Bacon Number</a></li><li><a href="https://py.mit.edu/fall19/labs/lab2#_paths">5) Paths</a></li><ul><li><a href="https://py.mit.edu/fall19/labs/lab2#_bacon_paths">5.1) Bacon Paths</a></li><ul><li><a href="https://py.mit.edu/fall19/labs/lab2#_speed">5.1.1) Speed</a></li></ul><li><a href="https://py.mit.edu/fall19/labs/lab2#_arbitrary_paths">5.2) Arbitrary Paths</a></li></ul><li><a href="https://py.mit.edu/fall19/labs/lab2#_movie_paths">6) Movie Paths</a></li><li><a href="https://py.mit.edu/fall19/labs/lab2#_code_submission">7) Code Submission</a></li><li><a href="https://py.mit.edu/fall19/labs/lab2#_checkoff">8) Checkoff</a></li><ul><li><a href="https://py.mit.edu/fall19/labs/lab2#_grade">8.1) Grade</a></li></ul></ul><p></p>
+<a class="anchor" name="catsoop_section_1"></a><a class="anchor" name="_preparation"></a><h2 class="cs_section_title">1) Preparation</h2>
+<p>This lab assumes you have Python 3.7 or later installed on your machine.</p>
+<p>The following file contains code and other resources as a starting point for
+this lab: <a download="lab2.zip" href="https://py.mit.edu/fall19/lab_distribution.zip?path=%5B%22fall19%22%2C+%22labs%22%2C+%22lab2%22%5D"><tt>lab2.zip</tt></a></p>
+<p>Most of your changes should be made to <code>lab.py</code>, which you will submit at the
+end of this lab.  Importantly, you should not add any imports to the file.</p>
+<p>This lab is worth a total of 4 points.  Your score for the lab is based on:</p>
+<ul>
+<li>correctly answering the questions throughout this page (1 point)</li>
+<li>passing the <code>test.py</code> tests and the server-only tests efficiently (2
+  points, see below), and</li>
+<li>a brief "checkoff" conversation with a staff member to share your code, including discussion of the bullets <a href="https://py.mit.edu/fall19/labs/lab2#_checkoff">below</a> and a review of your code's clarity/style (1 point).</li>
+</ul>
+<p>Your points for the test cases are based on how quickly your code runs on the
+server together with correctness. Your lab code will be expected to run in a
+certain amount of time (which varies depending on the test); this execution
+time is based on the amount of time it takes to run that test on the server
+(<em>not</em> your own machine).</p>
+<p><strong>The questions on this page, and the code submission at the end, are due at
+4pm on Friday, September 20.</strong></p>
+<a class="anchor" name="catsoop_section_2"></a><a class="anchor" name="_introduction"></a><h2 class="cs_section_title">2) Introduction</h2>
+<p>Have you heard of <em>Six Degrees of Separation</em>? This simple theory states that
+at most 6 people separate you from any other person in the world. (Facebook
+actually showed that the number among their users is significantly lower, at
+about 4.6. You can read more about it in <a href="http://arxiv.org/abs/1111.4570">a research
+paper</a>.)</p>
+<p>Hollywood has its own version: Kevin Bacon is the center of the universe (not
+really, but let's let him feel good about himself). Every actor who has acted
+with Kevin Bacon in a movie is assigned a "Bacon number" of 1, every actor who
+acted with someone who acted with Kevin Bacon is given a "Bacon number" of 2,
+and so on. (What Bacon number does Kevin Bacon have? Think about it for a
+second.)</p>
+<p>Note that if George Clooney acts in a movie with Julia Roberts, who has acted
+with Kevin Bacon in a different film, George has a Bacon number of 2 through
+this relationship. If George himself has also acted in a movie with Kevin,
+however, then his Bacon number is 1 and the connection through Julia is
+irrelevant. We define the notion of a "Bacon number" to be the <em>smallest</em> number
+of films separating a given actor (or actress) from Kevin Bacon.</p>
+<p>In this lab, we will explore the notion of the Bacon number. We have prepared
+an ambitious database of approximately 37,000 actors and 10,000 films so that
+you may look up your favorites. Did Julia Roberts and Kevin Bacon act in the
+same movie? And what does Robert De Niro have to do with Frozen? Let's find
+out!</p>
+<p><a class="anchor" name="catsoop_section_2_1"></a><a class="anchor" name="_the_film_database"></a></p><h3 class="cs_section_title">2.1) The Film Database</h3><p></p>
+<p>We've mined a large database of actors and films from
+<a href="https://www.imdb.com/">IMDB</a> via the
+<a href="http://www.themoviedb.org/">www.themoviedb.org</a> API.  We present this data set
+to you as a list of records (3-element lists), each of the form <code>[actor_id_1,
+actor_id_2, film_id]</code>, which tells us that <code>actor_id_2</code> acted with <code>actor_id_1</code>
+in a film denoted by <code>film_id</code>.</p>
+<p>Keep in mind that "acts with" is a symmetric relationship.  If <code>[a1, a2, f]</code>
+is in the database, it is true both that <code>a1</code> acted with <code>a2</code> <em>and</em> that <code>a2</code> acted
+with <code>a1</code>, even if <code>[a2, a1, f]</code> is not explicitly represented in the database.</p>
+<p>However, these relationships do not necessarily exhibit the transitive
+property.  That is, if <code>[a1, a2, f]</code> and <code>[a2, a3, f]</code> are in the database, it
+is <em>not necessarily true</em> that <code>a1</code> and <code>a3</code> have acted together (unless <code>[a1,
+a3, f]</code> or <code>[a3, a1, f]</code> is in the database).</p>
+<p>We store these data as <a href="https://en.wikipedia.org/wiki/JSON">JSON files</a>. The
+server tests will use <code>small.json</code> and <code>large.json</code>, but we have
+also included a <code>tiny.json</code> that you will use to write your own tests.</p>
+<p><a class="anchor" name="catsoop_section_2_2"></a><a class="anchor" name="_the_names_database"></a></p><h3 class="cs_section_title">2.2) The Names Database</h3><p></p>
+<p>The methods in <code>lab.py</code> expect you to use integer actor IDs, but the tests we
+give you on this page will have actor names as inputs and outputs.</p>
+<p>To help with this mapping, we include a file, <code>resources/names.json</code>, which has a
+<a href="https://en.wikipedia.org/wiki/JSON">JSON</a> representation of the mapping
+between actor IDs and names. You can use the <code>load</code> method of Python's
+<code>json</code> module to get the data out of the file and into Python. For an example
+of this, check out how we load databases in the <code>setUp</code> function of <code>test.py</code>.</p>
+<p>Answer the following questions <em>using Python</em>.</p>
+<p>
+<!--START question q000000 -->
+</p><div class="question question-multiplechoice" id="cs_qdiv_q000000" style="position: static">
+<div id="q000000_rendered_question">
+Which of the following best describes the Python object that results from loading <code>resources/names.json</code>?<br>
+<select id="q000000" name="q000000">
+<option selected="" value="-1">--</option>
+<option value="0">A Python list of actor names, where the actor's ID is used to index into the list</option>
+<option value="1">A Python list of tuples, each containing an actor's ID and that actor's name</option>
+<option value="2">A Python list of tuples, each containing the names of two actors who have acted together</option>
+<option value="3">A Python dictionary whose keys are actor names and whose values are actor ID numbers</option>
+<option value="4">A Python dictionary whose keys are actor ID numbers and whose values are actor names</option></select>
+</div><div>
+<span id="q000000_buttons"></span>
+<span id="q000000_loading_wrapper">
+<span id="q000000_loading" style="display:none;"><img src="data:image/gif;base64,R0lGODlhEAAQAPIGAMLCwkJCQgAAAGJiYoKCgpKSkv///wAAACH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAGACwAAAAAEAAQAAADMmi63P4wyklrAyEAGoQInAdOmGYBw7AxwLoMGcG2rkHEQFHQLTsQOd2mB9ERCpTWzpEAACH5BAkKAAYALAAAAgAKAA4AAAMraAYRoNAEIUJUs97VHgTD4EVDQ2xEM2wgMV5AUbyKLKNEvoxA3P8sYNCQAAAh+QQJCgAGACwAAAAACgAOAAADLWi6EAFrBSGCAmQ0as1wROFABuEM0TUQ5FUU7fK+aRkWNYDFqV4bOl8v+BMuEgAh+QQJCgAGACwAAAAADgAKAAADKmi6QAMrrhECkaaVVl+FRiFuAwEEghAoYxGhqgI0oPxlNSbPOcb3PqAkAQAh+QQJCgAGACwCAAAADgAKAAADKWhqUAUrLuekApA+MiDD4BYExAVGwzgsmNR0lgWMXmwEghDYCq7zDFoCACH5BAkKAAYALAYAAAAKAA4AAAMqaADWros9GEuRUBE7jeUTYGEhMZANEQREN6xDJ54PsKJGIAhBp/OyWyMBACH5BAkKAAYALAYAAgAKAA4AAAMpaKoA+609Fie1C5Tipt7WRhRWw0ED0T1DEAyMq7mEEghCAKTdnZcySwIAIfkEBQoABgAsAgAGAA4ACgAAAytoumwALb4X2YR1URACVkBRYIEgBIw4KuUJDERIzGD3doMhfguBZyAYT5EAADs="></span>
+</span>
+<span id="q000000_score_display"></span>
+<div class="nsubmits_left" id="q000000_nsubmits_left"></div></div>
+<div id="q000000_solution_container">
+<div id="q000000_solution">
+</div>
+<div id="q000000_solution_explanation">
+</div>
+</div>
+<div id="q000000_message"></div>
+<span style="font-size: small; color: #888; font-weight: bold;">This question is due on Friday September 20, 2019 at 04:00:00 PM.</span></div>
+<!--END question q000000 -->
+<p></p>
+<p>
+<!--START question q000001 -->
+</p><div class="question question-smallbox" id="cs_qdiv_q000001" style="position: static">
+<div id="q000001_rendered_question">
+What is Maria Mettke's ID number?<br><input id="q000001" name="q000001" type="text" value="">
+</div><div>
+<span id="q000001_buttons"></span>
+<span id="q000001_loading_wrapper">
+<span id="q000001_loading" style="display:none;"><img src="data:image/gif;base64,R0lGODlhEAAQAPIGAMLCwkJCQgAAAGJiYoKCgpKSkv///wAAACH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAGACwAAAAAEAAQAAADMmi63P4wyklrAyEAGoQInAdOmGYBw7AxwLoMGcG2rkHEQFHQLTsQOd2mB9ERCpTWzpEAACH5BAkKAAYALAAAAgAKAA4AAAMraAYRoNAEIUJUs97VHgTD4EVDQ2xEM2wgMV5AUbyKLKNEvoxA3P8sYNCQAAAh+QQJCgAGACwAAAAACgAOAAADLWi6EAFrBSGCAmQ0as1wROFABuEM0TUQ5FUU7fK+aRkWNYDFqV4bOl8v+BMuEgAh+QQJCgAGACwAAAAADgAKAAADKmi6QAMrrhECkaaVVl+FRiFuAwEEghAoYxGhqgI0oPxlNSbPOcb3PqAkAQAh+QQJCgAGACwCAAAADgAKAAADKWhqUAUrLuekApA+MiDD4BYExAVGwzgsmNR0lgWMXmwEghDYCq7zDFoCACH5BAkKAAYALAYAAAAKAA4AAAMqaADWros9GEuRUBE7jeUTYGEhMZANEQREN6xDJ54PsKJGIAhBp/OyWyMBACH5BAkKAAYALAYAAgAKAA4AAAMpaKoA+609Fie1C5Tipt7WRhRWw0ED0T1DEAyMq7mEEghCAKTdnZcySwIAIfkEBQoABgAsAgAGAA4ACgAAAytoumwALb4X2YR1URACVkBRYIEgBIw4KuUJDERIzGD3doMhfguBZyAYT5EAADs="></span>
+</span>
+<span id="q000001_score_display"></span>
+<div class="nsubmits_left" id="q000001_nsubmits_left"></div></div>
+<div id="q000001_solution_container">
+<div id="q000001_solution">
+</div>
+<div id="q000001_solution_explanation">
+</div>
+</div>
+<div id="q000001_message"></div>
+<span style="font-size: small; color: #888; font-weight: bold;">This question is due on Friday September 20, 2019 at 04:00:00 PM.</span></div>
+<!--END question q000001 -->
+<p></p>
+<p>
+<!--START question q000002 -->
+</p><div class="question question-smallbox" id="cs_qdiv_q000002" style="position: static">
+<div id="q000002_rendered_question">
+Which actor has the ID 101752?<br><input id="q000002" name="q000002" type="text" value="">
+</div><div>
+<span id="q000002_buttons"></span>
+<span id="q000002_loading_wrapper">
+<span id="q000002_loading" style="display:none;"><img src="data:image/gif;base64,R0lGODlhEAAQAPIGAMLCwkJCQgAAAGJiYoKCgpKSkv///wAAACH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAGACwAAAAAEAAQAAADMmi63P4wyklrAyEAGoQInAdOmGYBw7AxwLoMGcG2rkHEQFHQLTsQOd2mB9ERCpTWzpEAACH5BAkKAAYALAAAAgAKAA4AAAMraAYRoNAEIUJUs97VHgTD4EVDQ2xEM2wgMV5AUbyKLKNEvoxA3P8sYNCQAAAh+QQJCgAGACwAAAAACgAOAAADLWi6EAFrBSGCAmQ0as1wROFABuEM0TUQ5FUU7fK+aRkWNYDFqV4bOl8v+BMuEgAh+QQJCgAGACwAAAAADgAKAAADKmi6QAMrrhECkaaVVl+FRiFuAwEEghAoYxGhqgI0oPxlNSbPOcb3PqAkAQAh+QQJCgAGACwCAAAADgAKAAADKWhqUAUrLuekApA+MiDD4BYExAVGwzgsmNR0lgWMXmwEghDYCq7zDFoCACH5BAkKAAYALAYAAAAKAA4AAAMqaADWros9GEuRUBE7jeUTYGEhMZANEQREN6xDJ54PsKJGIAhBp/OyWyMBACH5BAkKAAYALAYAAgAKAA4AAAMpaKoA+609Fie1C5Tipt7WRhRWw0ED0T1DEAyMq7mEEghCAKTdnZcySwIAIfkEBQoABgAsAgAGAA4ACgAAAytoumwALb4X2YR1URACVkBRYIEgBIw4KuUJDERIzGD3doMhfguBZyAYT5EAADs="></span>
+</span>
+<span id="q000002_score_display"></span>
+<div class="nsubmits_left" id="q000002_nsubmits_left"></div></div>
+<div id="q000002_solution_container">
+<div id="q000002_solution">
+</div>
+<div id="q000002_solution_explanation">
+</div>
+</div>
+<div id="q000002_message"></div>
+<span style="font-size: small; color: #888; font-weight: bold;">This question is due on Friday September 20, 2019 at 04:00:00 PM.</span></div>
+<!--END question q000002 -->
+<p></p>
+<p><a class="anchor" name="catsoop_section_2_3"></a><a class="anchor" name="_using_the_ui"></a></p><h3 class="cs_section_title">2.3) Using the UI</h3><p></p>
+<p>We have also provided a visualization website which loads your code into a
+small server (<code>server.py</code>) and visualizes your results. To use the
+visualization, run <code>server.py</code> and use your web browser navigate to
+<a href="http://localhost:8000/">localhost:8000</a>. You will need to restart <code>server.py</code>
+in order to reload your code if you make changes.</p>
+<p>You will be able to see actors as circular nodes (hover above the node to see
+the actor's name) and the movies as edges linking nodes together.</p>
+<p>Above the graph we define three different tabs, one for each component of the
+lab. Each tab sets up the visualization appropriate for its aspect of the lab.</p>
+<p><a class="anchor" name="catsoop_section_2_4"></a><a class="anchor" name="_lab_py_and_test_py"></a></p><h3 class="cs_section_title">2.4) <tt>lab.py</tt> and <tt>test.py</tt></h3><p></p>
+<p>These files are yours to edit in order to complete this lab. You should
+implement the main functionality of the lab in <code>lab.py</code>, and you should
+implement additional test cases (as described throughout the assignment) in
+<code>test.py</code>.</p>
+<p>In <code>lab.py</code>, you will find a skeleton for the functions we expect you to write.</p>
+<a class="anchor" name="catsoop_section_3"></a><a class="anchor" name="_acting_together"></a><h2 class="cs_section_title">3) Acting Together</h2>
+<p>To get used to the structure of the databases, complete the definition of
+<code>did_x_and_y_act_together</code> in <code>lab.py</code>.  This function should take three
+arguments in order:</p>
+<ul>
+<li>The database to be used (a list of records of actors who have acted together
+    in a film, as well as a film ID: <code>[actor_id_1, actor_id_2, film_id]</code>),</li>
+<li>Two IDs representing actors</li>
+</ul>
+<p>This function should return <code>True</code> if the two given actors ever acted together
+in a film and <code>False</code> otherwise.  For example, Kevin Bacon (<code>id=4724</code>) and
+Steve Park (<code>id=4025</code>) did <em>not</em> act in a film together, meaning
+<code>did_x_and_y_act_together(..., 4724, 4025)</code> should return <code>False</code>.</p>
+<p>Inside <code>test.py</code>, we have included a <code>TestTiny</code> class which has a <code>setUp</code>
+method but no tests. Add at least one test testing <code>did_x_and_y_act_together</code>
+on the tiny database (you can open <code>tiny.json</code> in a text editor to see the data
+it contains).</p>
+<p>When you are done implementing this method and it passes the associated tests,
+use your code to answer the following questions according to the data in the
+<code>resources/small.json</code> database. (Hint: You will need to load <code>names.json</code> to
+get the mapping from actors to IDs, then find the actor corresponding to the
+ID; consider writing a helper method that does this automatically.)</p>
+<p>
+<!--START question q000003 -->
+</p><div class="question question-multiplechoice" id="cs_qdiv_q000003" style="position: static">
+<div id="q000003_rendered_question">
+According to the <code>small.json</code> database, have Steve Park and Craig Bierko acted together?<br>
+<select id="q000003" name="q000003">
+<option selected="" value="-1">--</option>
+<option value="0">No</option>
+<option value="1">Yes</option></select>
+</div><div>
+<span id="q000003_buttons"></span>
+<span id="q000003_loading_wrapper">
+<span id="q000003_loading" style="display:none;"><img src="data:image/gif;base64,R0lGODlhEAAQAPIGAMLCwkJCQgAAAGJiYoKCgpKSkv///wAAACH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAGACwAAAAAEAAQAAADMmi63P4wyklrAyEAGoQInAdOmGYBw7AxwLoMGcG2rkHEQFHQLTsQOd2mB9ERCpTWzpEAACH5BAkKAAYALAAAAgAKAA4AAAMraAYRoNAEIUJUs97VHgTD4EVDQ2xEM2wgMV5AUbyKLKNEvoxA3P8sYNCQAAAh+QQJCgAGACwAAAAACgAOAAADLWi6EAFrBSGCAmQ0as1wROFABuEM0TUQ5FUU7fK+aRkWNYDFqV4bOl8v+BMuEgAh+QQJCgAGACwAAAAADgAKAAADKmi6QAMrrhECkaaVVl+FRiFuAwEEghAoYxGhqgI0oPxlNSbPOcb3PqAkAQAh+QQJCgAGACwCAAAADgAKAAADKWhqUAUrLuekApA+MiDD4BYExAVGwzgsmNR0lgWMXmwEghDYCq7zDFoCACH5BAkKAAYALAYAAAAKAA4AAAMqaADWros9GEuRUBE7jeUTYGEhMZANEQREN6xDJ54PsKJGIAhBp/OyWyMBACH5BAkKAAYALAYAAgAKAA4AAAMpaKoA+609Fie1C5Tipt7WRhRWw0ED0T1DEAyMq7mEEghCAKTdnZcySwIAIfkEBQoABgAsAgAGAA4ACgAAAytoumwALb4X2YR1URACVkBRYIEgBIw4KuUJDERIzGD3doMhfguBZyAYT5EAADs="></span>
+</span>
+<span id="q000003_score_display"></span>
+<div class="nsubmits_left" id="q000003_nsubmits_left"></div></div>
+<div id="q000003_solution_container">
+<div id="q000003_solution">
+</div>
+<div id="q000003_solution_explanation">
+</div>
+</div>
+<div id="q000003_message"></div>
+<span style="font-size: small; color: #888; font-weight: bold;">This question is due on Friday September 20, 2019 at 04:00:00 PM.</span></div>
+<!--END question q000003 -->
+<p></p>
+<p>
+<!--START question q000004 -->
+</p><div class="question question-multiplechoice" id="cs_qdiv_q000004" style="position: static">
+<div id="q000004_rendered_question">
+According to the <code>small.json</code> database, have Rex Linn and Samuel L. Jackson acted together?<br>
+<select id="q000004" name="q000004">
+<option selected="" value="-1">--</option>
+<option value="0">No</option>
+<option value="1">Yes</option></select>
+</div><div>
+<span id="q000004_buttons"></span>
+<span id="q000004_loading_wrapper">
+<span id="q000004_loading" style="display:none;"><img src="data:image/gif;base64,R0lGODlhEAAQAPIGAMLCwkJCQgAAAGJiYoKCgpKSkv///wAAACH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAGACwAAAAAEAAQAAADMmi63P4wyklrAyEAGoQInAdOmGYBw7AxwLoMGcG2rkHEQFHQLTsQOd2mB9ERCpTWzpEAACH5BAkKAAYALAAAAgAKAA4AAAMraAYRoNAEIUJUs97VHgTD4EVDQ2xEM2wgMV5AUbyKLKNEvoxA3P8sYNCQAAAh+QQJCgAGACwAAAAACgAOAAADLWi6EAFrBSGCAmQ0as1wROFABuEM0TUQ5FUU7fK+aRkWNYDFqV4bOl8v+BMuEgAh+QQJCgAGACwAAAAADgAKAAADKmi6QAMrrhECkaaVVl+FRiFuAwEEghAoYxGhqgI0oPxlNSbPOcb3PqAkAQAh+QQJCgAGACwCAAAADgAKAAADKWhqUAUrLuekApA+MiDD4BYExAVGwzgsmNR0lgWMXmwEghDYCq7zDFoCACH5BAkKAAYALAYAAAAKAA4AAAMqaADWros9GEuRUBE7jeUTYGEhMZANEQREN6xDJ54PsKJGIAhBp/OyWyMBACH5BAkKAAYALAYAAgAKAA4AAAMpaKoA+609Fie1C5Tipt7WRhRWw0ED0T1DEAyMq7mEEghCAKTdnZcySwIAIfkEBQoABgAsAgAGAA4ACgAAAytoumwALb4X2YR1URACVkBRYIEgBIw4KuUJDERIzGD3doMhfguBZyAYT5EAADs="></span>
+</span>
+<span id="q000004_score_display"></span>
+<div class="nsubmits_left" id="q000004_nsubmits_left"></div></div>
+<div id="q000004_solution_container">
+<div id="q000004_solution">
+</div>
+<div id="q000004_solution_explanation">
+</div>
+</div>
+<div id="q000004_message"></div>
+<span style="font-size: small; color: #888; font-weight: bold;">This question is due on Friday September 20, 2019 at 04:00:00 PM.</span></div>
+<!--END question q000004 -->
+<p></p>
+<p>Please note that <code>did_x_and_y_act_together</code> is a warm-up and was given to help
+you get familiar with the structure of the databases. You don't have to use
+the function in subsequent sections. Also note, though, that <code>test.py</code> does test
+this function.</p>
+<a class="anchor" name="catsoop_section_4"></a><a class="anchor" name="_bacon_number"></a><h2 class="cs_section_title">4) Bacon Number</h2>
+<p>Complete the definition of <code>get_actors_with_bacon_number</code> in <code>lab.py</code>.  This
+function should take two arguments in order:</p>
+<ul>
+<li>The database to be used (the same structure as before)</li>
+<li>The desired Bacon number</li>
+</ul>
+<p>This function should return a Python set containing the ID numbers of all the
+actors with that Bacon number.  Note that we'll define the <em>Bacon number</em> to be
+the <strong>smallest</strong> number of films separating a given actor from Kevin Bacon,
+whose actor ID is <code>4724</code>.</p>
+<p>Look at the data in <code>tiny.json</code> (we suggest you do this <em>without</em> using Python
+i.e. open it up in a text editor) and answer these questions:</p>
+<p>
+<!--START question q000005 -->
+</p><div class="question question-pythonic" id="cs_qdiv_q000005" style="position: static">
+<div id="q000005_rendered_question">
+What are the <strong>ID numbers</strong> of the actors who have a Bacon number of 0 in <code>tiny.json</code>?  Enter your answer below as a Python <code>set</code> of integers:<br><input id="q000005" name="q000005" size="50" type="text" value="">
+</div><div>
+<span id="q000005_buttons"></span>
+<span id="q000005_loading_wrapper">
+<span id="q000005_loading" style="display:none;"><img src="data:image/gif;base64,R0lGODlhEAAQAPIGAMLCwkJCQgAAAGJiYoKCgpKSkv///wAAACH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAGACwAAAAAEAAQAAADMmi63P4wyklrAyEAGoQInAdOmGYBw7AxwLoMGcG2rkHEQFHQLTsQOd2mB9ERCpTWzpEAACH5BAkKAAYALAAAAgAKAA4AAAMraAYRoNAEIUJUs97VHgTD4EVDQ2xEM2wgMV5AUbyKLKNEvoxA3P8sYNCQAAAh+QQJCgAGACwAAAAACgAOAAADLWi6EAFrBSGCAmQ0as1wROFABuEM0TUQ5FUU7fK+aRkWNYDFqV4bOl8v+BMuEgAh+QQJCgAGACwAAAAADgAKAAADKmi6QAMrrhECkaaVVl+FRiFuAwEEghAoYxGhqgI0oPxlNSbPOcb3PqAkAQAh+QQJCgAGACwCAAAADgAKAAADKWhqUAUrLuekApA+MiDD4BYExAVGwzgsmNR0lgWMXmwEghDYCq7zDFoCACH5BAkKAAYALAYAAAAKAA4AAAMqaADWros9GEuRUBE7jeUTYGEhMZANEQREN6xDJ54PsKJGIAhBp/OyWyMBACH5BAkKAAYALAYAAgAKAA4AAAMpaKoA+609Fie1C5Tipt7WRhRWw0ED0T1DEAyMq7mEEghCAKTdnZcySwIAIfkEBQoABgAsAgAGAA4ACgAAAytoumwALb4X2YR1URACVkBRYIEgBIw4KuUJDERIzGD3doMhfguBZyAYT5EAADs="></span>
+</span>
+<span id="q000005_score_display"></span>
+<div class="nsubmits_left" id="q000005_nsubmits_left"></div></div>
+<div id="q000005_solution_container">
+<div id="q000005_solution">
+</div>
+<div id="q000005_solution_explanation">
+</div>
+</div>
+<div id="q000005_message"></div>
+<span style="font-size: small; color: #888; font-weight: bold;">This question is due on Friday September 20, 2019 at 04:00:00 PM.</span></div>
+<!--END question q000005 -->
+<p></p>
+<p>
+<!--START question q000006 -->
+</p><div class="question question-pythonic" id="cs_qdiv_q000006" style="position: static">
+<div id="q000006_rendered_question">
+What are the <strong>ID numbers</strong> of the actors who have a Bacon number of 1 in <code>tiny.json</code>?  Enter your answer below as a Python <code>set</code> of integers:<br><input id="q000006" name="q000006" size="50" type="text" value="">
+</div><div>
+<span id="q000006_buttons"></span>
+<span id="q000006_loading_wrapper">
+<span id="q000006_loading" style="display:none;"><img src="data:image/gif;base64,R0lGODlhEAAQAPIGAMLCwkJCQgAAAGJiYoKCgpKSkv///wAAACH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAGACwAAAAAEAAQAAADMmi63P4wyklrAyEAGoQInAdOmGYBw7AxwLoMGcG2rkHEQFHQLTsQOd2mB9ERCpTWzpEAACH5BAkKAAYALAAAAgAKAA4AAAMraAYRoNAEIUJUs97VHgTD4EVDQ2xEM2wgMV5AUbyKLKNEvoxA3P8sYNCQAAAh+QQJCgAGACwAAAAACgAOAAADLWi6EAFrBSGCAmQ0as1wROFABuEM0TUQ5FUU7fK+aRkWNYDFqV4bOl8v+BMuEgAh+QQJCgAGACwAAAAADgAKAAADKmi6QAMrrhECkaaVVl+FRiFuAwEEghAoYxGhqgI0oPxlNSbPOcb3PqAkAQAh+QQJCgAGACwCAAAADgAKAAADKWhqUAUrLuekApA+MiDD4BYExAVGwzgsmNR0lgWMXmwEghDYCq7zDFoCACH5BAkKAAYALAYAAAAKAA4AAAMqaADWros9GEuRUBE7jeUTYGEhMZANEQREN6xDJ54PsKJGIAhBp/OyWyMBACH5BAkKAAYALAYAAgAKAA4AAAMpaKoA+609Fie1C5Tipt7WRhRWw0ED0T1DEAyMq7mEEghCAKTdnZcySwIAIfkEBQoABgAsAgAGAA4ACgAAAytoumwALb4X2YR1URACVkBRYIEgBIw4KuUJDERIzGD3doMhfguBZyAYT5EAADs="></span>
+</span>
+<span id="q000006_score_display"></span>
+<div class="nsubmits_left" id="q000006_nsubmits_left"></div></div>
+<div id="q000006_solution_container">
+<div id="q000006_solution">
+</div>
+<div id="q000006_solution_explanation">
+</div>
+</div>
+<div id="q000006_message"></div>
+<span style="font-size: small; color: #888; font-weight: bold;">This question is due on Friday September 20, 2019 at 04:00:00 PM.</span></div>
+<!--END question q000006 -->
+<p></p>
+<p>
+<!--START question q000007 -->
+</p><div class="question question-pythonic" id="cs_qdiv_q000007" style="position: static">
+<div id="q000007_rendered_question">
+What are the <strong>ID numbers</strong> of the actors who have a Bacon number of 2 in <code>tiny.json</code>?  Enter your answer below as a Python <code>set</code> of integers:<br><input id="q000007" name="q000007" size="50" type="text" value="">
+</div><div>
+<span id="q000007_buttons"></span>
+<span id="q000007_loading_wrapper">
+<span id="q000007_loading" style="display:none;"><img src="data:image/gif;base64,R0lGODlhEAAQAPIGAMLCwkJCQgAAAGJiYoKCgpKSkv///wAAACH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAGACwAAAAAEAAQAAADMmi63P4wyklrAyEAGoQInAdOmGYBw7AxwLoMGcG2rkHEQFHQLTsQOd2mB9ERCpTWzpEAACH5BAkKAAYALAAAAgAKAA4AAAMraAYRoNAEIUJUs97VHgTD4EVDQ2xEM2wgMV5AUbyKLKNEvoxA3P8sYNCQAAAh+QQJCgAGACwAAAAACgAOAAADLWi6EAFrBSGCAmQ0as1wROFABuEM0TUQ5FUU7fK+aRkWNYDFqV4bOl8v+BMuEgAh+QQJCgAGACwAAAAADgAKAAADKmi6QAMrrhECkaaVVl+FRiFuAwEEghAoYxGhqgI0oPxlNSbPOcb3PqAkAQAh+QQJCgAGACwCAAAADgAKAAADKWhqUAUrLuekApA+MiDD4BYExAVGwzgsmNR0lgWMXmwEghDYCq7zDFoCACH5BAkKAAYALAYAAAAKAA4AAAMqaADWros9GEuRUBE7jeUTYGEhMZANEQREN6xDJ54PsKJGIAhBp/OyWyMBACH5BAkKAAYALAYAAgAKAA4AAAMpaKoA+609Fie1C5Tipt7WRhRWw0ED0T1DEAyMq7mEEghCAKTdnZcySwIAIfkEBQoABgAsAgAGAA4ACgAAAytoumwALb4X2YR1URACVkBRYIEgBIw4KuUJDERIzGD3doMhfguBZyAYT5EAADs="></span>
+</span>
+<span id="q000007_score_display"></span>
+<div class="nsubmits_left" id="q000007_nsubmits_left"></div></div>
+<div id="q000007_solution_container">
+<div id="q000007_solution">
+</div>
+<div id="q000007_solution_explanation">
+</div>
+</div>
+<div id="q000007_message"></div>
+<span style="font-size: small; color: #888; font-weight: bold;">This question is due on Friday September 20, 2019 at 04:00:00 PM.</span></div>
+<!--END question q000007 -->
+<p></p>
+<p>
+<!--START question q000008 -->
+</p><div class="question question-pythonic" id="cs_qdiv_q000008" style="position: static">
+<div id="q000008_rendered_question">
+What are the <strong>ID numbers</strong> of the actors who have a Bacon number of 3 in <code>tiny.json</code>?  Enter your answer below as a Python <code>set</code> of integers:<br><input id="q000008" name="q000008" size="50" type="text" value="">
+</div><div>
+<span id="q000008_buttons"></span>
+<span id="q000008_loading_wrapper">
+<span id="q000008_loading" style="display:none;"><img src="data:image/gif;base64,R0lGODlhEAAQAPIGAMLCwkJCQgAAAGJiYoKCgpKSkv///wAAACH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAGACwAAAAAEAAQAAADMmi63P4wyklrAyEAGoQInAdOmGYBw7AxwLoMGcG2rkHEQFHQLTsQOd2mB9ERCpTWzpEAACH5BAkKAAYALAAAAgAKAA4AAAMraAYRoNAEIUJUs97VHgTD4EVDQ2xEM2wgMV5AUbyKLKNEvoxA3P8sYNCQAAAh+QQJCgAGACwAAAAACgAOAAADLWi6EAFrBSGCAmQ0as1wROFABuEM0TUQ5FUU7fK+aRkWNYDFqV4bOl8v+BMuEgAh+QQJCgAGACwAAAAADgAKAAADKmi6QAMrrhECkaaVVl+FRiFuAwEEghAoYxGhqgI0oPxlNSbPOcb3PqAkAQAh+QQJCgAGACwCAAAADgAKAAADKWhqUAUrLuekApA+MiDD4BYExAVGwzgsmNR0lgWMXmwEghDYCq7zDFoCACH5BAkKAAYALAYAAAAKAA4AAAMqaADWros9GEuRUBE7jeUTYGEhMZANEQREN6xDJ54PsKJGIAhBp/OyWyMBACH5BAkKAAYALAYAAgAKAA4AAAMpaKoA+609Fie1C5Tipt7WRhRWw0ED0T1DEAyMq7mEEghCAKTdnZcySwIAIfkEBQoABgAsAgAGAA4ACgAAAytoumwALb4X2YR1URACVkBRYIEgBIw4KuUJDERIzGD3doMhfguBZyAYT5EAADs="></span>
+</span>
+<span id="q000008_score_display"></span>
+<div class="nsubmits_left" id="q000008_nsubmits_left"></div></div>
+<div id="q000008_solution_container">
+<div id="q000008_solution">
+</div>
+<div id="q000008_solution_explanation">
+</div>
+</div>
+<div id="q000008_message"></div>
+<span style="font-size: small; color: #888; font-weight: bold;">This question is due on Friday September 20, 2019 at 04:00:00 PM.</span></div>
+<!--END question q000008 -->
+<p></p>
+<p>Add the four above questions as tests in the <code>TestTiny</code> class. Use your
+<code>get_actors_with_bacon_number</code> function to compute the sets of actors with
+Bacon numbers 0, 1, 2, and 3 and compare them against the results you just found
+above.  So that they are recognized as individual tests, <strong>define each as a
+separate method in the class, starting with <code>test_</code></strong> (e.g. <code>test_bacon_number_0</code>).</p>
+<p>Now you're ready to write your Bacon number code! Here are some things to think
+about when writing your implementation. Consider the set of actors with a
+<em>Bacon number</em> of 1. Here is a visual representation of the data from the
+<code>small.json</code> database. (You can use our provided server to generate pictures like these.)</p>
+<p></p><center>
+<img src="./Lab 2 - Bacon Number_files/graph1.png" style="width:50%">
+</center><p></p>
+<p>Given the set of actors with a <em>Bacon number</em> of 1, think of how you can find
+the set of actors with a <em>Bacon number</em> of 2:</p>
+<p></p><center>
+<img src="./Lab 2 - Bacon Number_files/graph2.png" style="width:50%">
+</center><p></p>
+<p>Once you get a sense for how to get the <em>Bacon number</em> 2 actors from the <em>Bacon
+number</em> 1 actors, try to generalize to getting the <em>Bacon number</em> <code>i+1</code> actors
+from the <em>Bacon number</em> <code>i</code> actors.</p>
+<p>Note that the test cases in <code>test.py</code> run against small and large databases of
+actors and films, and that your implementation needs to be efficient enough to
+handle the large database in a timely manner.  Your code should also handle the
+case of arbitrary Bacon numbers (not just <span class=""><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≤</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">n \leq 6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.77194em; vertical-align: -0.13597em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 0.64444em; vertical-align: 0em;"></span><span class="mord">6</span></span></span></span></span>) since some databases may
+be structured to assign some actors quite large Bacon numbers.</p>
+<p>When you're done writing this method and it passes all of your tests, answer
+the following question that uses the <code>large.json</code> database:</p>
+<p>
+<!--START question q000009 -->
+</p><div class="question question-pythonic" id="cs_qdiv_q000009" style="position: static">
+<div id="q000009_rendered_question">
+In the <code>large.json</code> database, what is the set of actors with Bacon number 6?  Enter your answer below as a Python <code>set</code> of strings representing <strong>actor names</strong>:<br><input id="q000009" name="q000009" size="50" type="text" value="">
+</div><div>
+<span id="q000009_buttons"></span>
+<span id="q000009_loading_wrapper">
+<span id="q000009_loading" style="display:none;"><img src="data:image/gif;base64,R0lGODlhEAAQAPIGAMLCwkJCQgAAAGJiYoKCgpKSkv///wAAACH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAGACwAAAAAEAAQAAADMmi63P4wyklrAyEAGoQInAdOmGYBw7AxwLoMGcG2rkHEQFHQLTsQOd2mB9ERCpTWzpEAACH5BAkKAAYALAAAAgAKAA4AAAMraAYRoNAEIUJUs97VHgTD4EVDQ2xEM2wgMV5AUbyKLKNEvoxA3P8sYNCQAAAh+QQJCgAGACwAAAAACgAOAAADLWi6EAFrBSGCAmQ0as1wROFABuEM0TUQ5FUU7fK+aRkWNYDFqV4bOl8v+BMuEgAh+QQJCgAGACwAAAAADgAKAAADKmi6QAMrrhECkaaVVl+FRiFuAwEEghAoYxGhqgI0oPxlNSbPOcb3PqAkAQAh+QQJCgAGACwCAAAADgAKAAADKWhqUAUrLuekApA+MiDD4BYExAVGwzgsmNR0lgWMXmwEghDYCq7zDFoCACH5BAkKAAYALAYAAAAKAA4AAAMqaADWros9GEuRUBE7jeUTYGEhMZANEQREN6xDJ54PsKJGIAhBp/OyWyMBACH5BAkKAAYALAYAAgAKAA4AAAMpaKoA+609Fie1C5Tipt7WRhRWw0ED0T1DEAyMq7mEEghCAKTdnZcySwIAIfkEBQoABgAsAgAGAA4ACgAAAytoumwALb4X2YR1URACVkBRYIEgBIw4KuUJDERIzGD3doMhfguBZyAYT5EAADs="></span>
+</span>
+<span id="q000009_score_display"></span>
+<div class="nsubmits_left" id="q000009_nsubmits_left"></div></div>
+<div id="q000009_solution_container">
+<div id="q000009_solution">
+</div>
+<div id="q000009_solution_explanation">
+</div>
+</div>
+<div id="q000009_message"></div>
+<span style="font-size: small; color: #888; font-weight: bold;">This question is due on Friday September 20, 2019 at 04:00:00 PM.</span></div>
+<!--END question q000009 -->
+<p></p>
+<a class="anchor" name="catsoop_section_5"></a><a class="anchor" name="_paths"></a><h2 class="cs_section_title">5) Paths</h2>
+<p>Now we'll turn our attention to finding the <em>chain</em> of actors that connects
+Kevin Bacon to someone else.</p>
+<p><a class="anchor" name="catsoop_section_5_1"></a><a class="anchor" name="_bacon_paths"></a></p><h3 class="cs_section_title">5.1) Bacon Paths</h3><p></p>
+<p>Complete the definition of <code>get_bacon_path</code> in <code>lab.py</code>.  The function should
+take two arguments in order:</p>
+<ul>
+<li>The database to be used (the same structure as before),</li>
+<li>An ID representing an actor</li>
+</ul>
+<p>Your function should produce a list of actor IDs (any such shortest list if
+there are several) detailing a "Bacon path" from Kevin Bacon to the actor
+denoted by <code>actor_id</code>.  If no path exists, return <code>None</code>.</p>
+<p>Please note that the paths are not necessarily unique, so any shortest list
+that connects Bacon to the actor denoted by <code>actor_id</code> is valid.  The tester
+does not hard-code the correct paths and only verifies the <em>length</em> of the path
+you find (as well as that it is indeed a path that exists in the database).</p>
+<p>For example, if we run this method on <code>large.json</code> with Julia Roberts's ID
+(<code>actor_id=1204</code>), one valid path is <code>[4724, 3087, 1204]</code>, showing that Kevin
+Bacon (<code>4724</code>) has acted with Robert Duvall (<code>3087</code>), who in turn acted with
+Julia Roberts (<code>1204</code>).</p>
+<p>
+<!--START question q000010 -->
+</p><div class="question question-pythonic" id="cs_qdiv_q000010" style="position: static">
+<div id="q000010_rendered_question">
+Take look at the data in <code>tiny.json</code>. What's the shortest path that connects actor <code>4724</code> to actor <code>1640</code>?  Enter your answer below as a Python list of <strong>ID numbers</strong>:<br><input id="q000010" name="q000010" size="50" type="text" value="">
+</div><div>
+<span id="q000010_buttons"></span>
+<span id="q000010_loading_wrapper">
+<span id="q000010_loading" style="display:none;"><img src="data:image/gif;base64,R0lGODlhEAAQAPIGAMLCwkJCQgAAAGJiYoKCgpKSkv///wAAACH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAGACwAAAAAEAAQAAADMmi63P4wyklrAyEAGoQInAdOmGYBw7AxwLoMGcG2rkHEQFHQLTsQOd2mB9ERCpTWzpEAACH5BAkKAAYALAAAAgAKAA4AAAMraAYRoNAEIUJUs97VHgTD4EVDQ2xEM2wgMV5AUbyKLKNEvoxA3P8sYNCQAAAh+QQJCgAGACwAAAAACgAOAAADLWi6EAFrBSGCAmQ0as1wROFABuEM0TUQ5FUU7fK+aRkWNYDFqV4bOl8v+BMuEgAh+QQJCgAGACwAAAAADgAKAAADKmi6QAMrrhECkaaVVl+FRiFuAwEEghAoYxGhqgI0oPxlNSbPOcb3PqAkAQAh+QQJCgAGACwCAAAADgAKAAADKWhqUAUrLuekApA+MiDD4BYExAVGwzgsmNR0lgWMXmwEghDYCq7zDFoCACH5BAkKAAYALAYAAAAKAA4AAAMqaADWros9GEuRUBE7jeUTYGEhMZANEQREN6xDJ54PsKJGIAhBp/OyWyMBACH5BAkKAAYALAYAAgAKAA4AAAMpaKoA+609Fie1C5Tipt7WRhRWw0ED0T1DEAyMq7mEEghCAKTdnZcySwIAIfkEBQoABgAsAgAGAA4ACgAAAytoumwALb4X2YR1URACVkBRYIEgBIw4KuUJDERIzGD3doMhfguBZyAYT5EAADs="></span>
+</span>
+<span id="q000010_score_display"></span>
+<div class="nsubmits_left" id="q000010_nsubmits_left"></div></div>
+<div id="q000010_solution_container">
+<div id="q000010_solution">
+</div>
+<div id="q000010_solution_explanation">
+</div>
+</div>
+<div id="q000010_message"></div>
+<span style="font-size: small; color: #888; font-weight: bold;">This question is due on Friday September 20, 2019 at 04:00:00 PM.</span></div>
+<!--END question q000010 -->
+<p></p>
+<p>Add a test for the case above to the <code>TestTiny</code> class in <code>test.py</code>.  You can use
+this test to help make sure your function is implemented correctly.</p>
+<p><a class="anchor" name="catsoop_section_5_1_1"></a><a class="anchor" name="_speed"></a></p><h4 class="cs_section_title">5.1.1) Speed</h4><p></p>
+<p>When implementing the path-finding algorithm, you should optimize your code to
+handle the large database, which our testing infrastructure will use when
+testing your code.</p>
+<p>In particular, here are a few ideas about speed:</p>
+<ul>
+<li>
+<p>Membership tests (the <code>in</code> operator) on long lists can be very slow.  By
+    contrast, the <code>in</code> operator is very fast on sets and dictionaries (regardless
+    of the lengths of these objects).  However, sets and dictionaries do not
+    retain information about the order of their elements.  Consider whether there
+    are cases in your code where a set or dictionary can be used in place of a
+    list.</p>
+</li>
+<li>
+<p>Running <code>L.pop(0)</code> on a long list is also slow.   If you find yourself doing
+    this, ask: do you really need to pop?  Or can you just use an index to keep
+    track of which list element you’re working on?</p>
+</li>
+<li>
+<p>Searching through data using a <code>for</code> loop can be slow.  Can you reorganize the
+    data so that your search can be implemented with a single dictionary lookup
+    or set-containment check?</p>
+</li>
+</ul>
+<p>You will also need to be careful about your overall algorithm.  In particular,
+<strong><em>avoid repeatedly iterating through all of <code>data</code>.</em></strong>
+For example, consider the following graph, with a path highlighted:</p>
+<p></p><center>
+<img src="./Lab 2 - Bacon Number_files/graph3.png" style="width:50%">
+</center><p></p>
+<p>Here we've started from Kevin Bacon and successfully expanded out our search
+until we got to the actor we were looking for. What do we need to keep track of
+during our search if we want to get the path without looking for the actor
+again?</p>
+<p>When you have implemented your function and it passes your tests, use it to
+answer the question below:</p>
+<p>
+<!--START question q000011 -->
+</p><div class="question question-pythonic" id="cs_qdiv_q000011" style="position: static">
+<div id="q000011_rendered_question">
+According to the <code>large.json</code> database, what is the path of actors from Kevin Bacon to Malena Alterio?  Enter your answer as a Python list of <strong>actor names</strong> below:<br><input id="q000011" name="q000011" size="50" type="text" value="">
+</div><div>
+<span id="q000011_buttons"></span>
+<span id="q000011_loading_wrapper">
+<span id="q000011_loading" style="display:none;"><img src="data:image/gif;base64,R0lGODlhEAAQAPIGAMLCwkJCQgAAAGJiYoKCgpKSkv///wAAACH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAGACwAAAAAEAAQAAADMmi63P4wyklrAyEAGoQInAdOmGYBw7AxwLoMGcG2rkHEQFHQLTsQOd2mB9ERCpTWzpEAACH5BAkKAAYALAAAAgAKAA4AAAMraAYRoNAEIUJUs97VHgTD4EVDQ2xEM2wgMV5AUbyKLKNEvoxA3P8sYNCQAAAh+QQJCgAGACwAAAAACgAOAAADLWi6EAFrBSGCAmQ0as1wROFABuEM0TUQ5FUU7fK+aRkWNYDFqV4bOl8v+BMuEgAh+QQJCgAGACwAAAAADgAKAAADKmi6QAMrrhECkaaVVl+FRiFuAwEEghAoYxGhqgI0oPxlNSbPOcb3PqAkAQAh+QQJCgAGACwCAAAADgAKAAADKWhqUAUrLuekApA+MiDD4BYExAVGwzgsmNR0lgWMXmwEghDYCq7zDFoCACH5BAkKAAYALAYAAAAKAA4AAAMqaADWros9GEuRUBE7jeUTYGEhMZANEQREN6xDJ54PsKJGIAhBp/OyWyMBACH5BAkKAAYALAYAAgAKAA4AAAMpaKoA+609Fie1C5Tipt7WRhRWw0ED0T1DEAyMq7mEEghCAKTdnZcySwIAIfkEBQoABgAsAgAGAA4ACgAAAytoumwALb4X2YR1URACVkBRYIEgBIw4KuUJDERIzGD3doMhfguBZyAYT5EAADs="></span>
+</span>
+<span id="q000011_score_display"></span>
+<div class="nsubmits_left" id="q000011_nsubmits_left"></div></div>
+<div id="q000011_solution_container">
+<div id="q000011_solution">
+</div>
+<div id="q000011_solution_explanation">
+</div>
+</div>
+<div id="q000011_message"></div>
+<span style="font-size: small; color: #888; font-weight: bold;">This question is due on Friday September 20, 2019 at 04:00:00 PM.</span></div>
+<!--END question q000011 -->
+<p></p>
+<p><a class="anchor" name="catsoop_section_5_2"></a><a class="anchor" name="_arbitrary_paths"></a></p><h3 class="cs_section_title">5.2) Arbitrary Paths</h3><p></p>
+<p>What we've done so far is pretty good, but it raises an important question:
+what makes Kevin Bacon so special?  So far, everything we've done has centered
+around him. Let's expand things a bit and find the path that
+connects two <em>arbitrary</em> actors to each other.</p>
+<p>Complete the definition of <code>get_path</code> in <code>lab.py</code>.  The function should take
+three arguments in order:</p>
+<ul>
+<li>The database to be used (the same structure as before),</li>
+<li>Two IDs representing actors</li>
+</ul>
+<p>Your function should produce a list of actor IDs (any such shortest list if
+there are several) detailing a path from one actor to the other.</p>
+<p>Add at least one test case for <code>get_path</code> to <code>TestTiny</code> based on the contents
+of the <code>tiny.json</code> database.  It should find the minimal path between two
+non-Bacon actors.</p>
+<p>When you have implemented this function and it passes your tests, use it to
+answer the question below:</p>
+<p>
+<!--START question q000012 -->
+</p><div class="question question-pythonic" id="cs_qdiv_q000012" style="position: static">
+<div id="q000012_rendered_question">
+According to the <code>large.json</code> database, what is the minimal path of actors from Al Hoxie to Betsy Palmer?  Enter your answer as a Python list of <strong>actor names</strong> below:<br><input id="q000012" name="q000012" size="50" type="text" value="">
+</div><div>
+<span id="q000012_buttons"></span>
+<span id="q000012_loading_wrapper">
+<span id="q000012_loading" style="display:none;"><img src="data:image/gif;base64,R0lGODlhEAAQAPIGAMLCwkJCQgAAAGJiYoKCgpKSkv///wAAACH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAGACwAAAAAEAAQAAADMmi63P4wyklrAyEAGoQInAdOmGYBw7AxwLoMGcG2rkHEQFHQLTsQOd2mB9ERCpTWzpEAACH5BAkKAAYALAAAAgAKAA4AAAMraAYRoNAEIUJUs97VHgTD4EVDQ2xEM2wgMV5AUbyKLKNEvoxA3P8sYNCQAAAh+QQJCgAGACwAAAAACgAOAAADLWi6EAFrBSGCAmQ0as1wROFABuEM0TUQ5FUU7fK+aRkWNYDFqV4bOl8v+BMuEgAh+QQJCgAGACwAAAAADgAKAAADKmi6QAMrrhECkaaVVl+FRiFuAwEEghAoYxGhqgI0oPxlNSbPOcb3PqAkAQAh+QQJCgAGACwCAAAADgAKAAADKWhqUAUrLuekApA+MiDD4BYExAVGwzgsmNR0lgWMXmwEghDYCq7zDFoCACH5BAkKAAYALAYAAAAKAA4AAAMqaADWros9GEuRUBE7jeUTYGEhMZANEQREN6xDJ54PsKJGIAhBp/OyWyMBACH5BAkKAAYALAYAAgAKAA4AAAMpaKoA+609Fie1C5Tipt7WRhRWw0ED0T1DEAyMq7mEEghCAKTdnZcySwIAIfkEBQoABgAsAgAGAA4ACgAAAytoumwALb4X2YR1URACVkBRYIEgBIw4KuUJDERIzGD3doMhfguBZyAYT5EAADs="></span>
+</span>
+<span id="q000012_score_display"></span>
+<div class="nsubmits_left" id="q000012_nsubmits_left"></div></div>
+<div id="q000012_solution_container">
+<div id="q000012_solution">
+</div>
+<div id="q000012_solution_explanation">
+</div>
+</div>
+<div id="q000012_message"></div>
+<span style="font-size: small; color: #888; font-weight: bold;">This question is due on Friday September 20, 2019 at 04:00:00 PM.</span></div>
+<!--END question q000012 -->
+<p></p>
+<a class="anchor" name="catsoop_section_6"></a><a class="anchor" name="_movie_paths"></a><h2 class="cs_section_title">6) Movie Paths</h2>
+<p>After completing the work above, you might be interested to know what
+sequence of movies you could watch in order to traverse the path from
+one actor to another.  For example, to move from Kevin Bacon to Julia
+Roberts, one could watch movie ID <code>94671</code> ("Jayne Mansfield's Car,"
+which connects Kevin Bacon to Robert Duvall) and <code>18402</code> ("Something to
+Talk About," which connects Robert Duvall to Julia Roberts).</p>
+<p>Add some code to your <code>lab.py</code> to determine the list of <em>movie names</em> that
+connect two arbitrary actors.  To this end, we have included the <code>movies.json</code>
+database, which maps movie names to ID numbers.</p>
+<p>When you have finished this code, use it to answer the following question:</p>
+<p>
+<!--START question q000013 -->
+</p><div class="question question-pythonic" id="cs_qdiv_q000013" style="position: static">
+<div id="q000013_rendered_question">
+According to the <code>large.json</code> database, what is the minimal path of <em>movie titles</em> connecting Tim Daly to Iva Ilakovac?  Enter your answer as a Python list of <strong>movie names</strong> below:<br><input id="q000013" name="q000013" size="50" type="text" value="">
+</div><div>
+<span id="q000013_buttons"></span>
+<span id="q000013_loading_wrapper">
+<span id="q000013_loading" style="display:none;"><img src="data:image/gif;base64,R0lGODlhEAAQAPIGAMLCwkJCQgAAAGJiYoKCgpKSkv///wAAACH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAGACwAAAAAEAAQAAADMmi63P4wyklrAyEAGoQInAdOmGYBw7AxwLoMGcG2rkHEQFHQLTsQOd2mB9ERCpTWzpEAACH5BAkKAAYALAAAAgAKAA4AAAMraAYRoNAEIUJUs97VHgTD4EVDQ2xEM2wgMV5AUbyKLKNEvoxA3P8sYNCQAAAh+QQJCgAGACwAAAAACgAOAAADLWi6EAFrBSGCAmQ0as1wROFABuEM0TUQ5FUU7fK+aRkWNYDFqV4bOl8v+BMuEgAh+QQJCgAGACwAAAAADgAKAAADKmi6QAMrrhECkaaVVl+FRiFuAwEEghAoYxGhqgI0oPxlNSbPOcb3PqAkAQAh+QQJCgAGACwCAAAADgAKAAADKWhqUAUrLuekApA+MiDD4BYExAVGwzgsmNR0lgWMXmwEghDYCq7zDFoCACH5BAkKAAYALAYAAAAKAA4AAAMqaADWros9GEuRUBE7jeUTYGEhMZANEQREN6xDJ54PsKJGIAhBp/OyWyMBACH5BAkKAAYALAYAAgAKAA4AAAMpaKoA+609Fie1C5Tipt7WRhRWw0ED0T1DEAyMq7mEEghCAKTdnZcySwIAIfkEBQoABgAsAgAGAA4ACgAAAytoumwALb4X2YR1URACVkBRYIEgBIw4KuUJDERIzGD3doMhfguBZyAYT5EAADs="></span>
+</span>
+<span id="q000013_score_display"></span>
+<div class="nsubmits_left" id="q000013_nsubmits_left"></div></div>
+<div id="q000013_solution_container">
+<div id="q000013_solution">
+</div>
+<div id="q000013_solution_explanation">
+</div>
+</div>
+<div id="q000013_message"></div>
+<span style="font-size: small; color: #888; font-weight: bold;">This question is due on Friday September 20, 2019 at 04:00:00 PM.</span></div>
+<!--END question q000013 -->
+<p></p>
+<a class="anchor" name="catsoop_section_7"></a><a class="anchor" name="_code_submission"></a><h2 class="cs_section_title">7) Code Submission</h2>
+<p>When you have tested your code sufficiently on your own machine, submit your
+modified <code>lab.py</code> below.</p>
+<p>When submitting <code>lab.py</code>, the server will run the tests and report back the
+results (including timing) below.</p>
+<p>On the server, we will run several additional tests, comprised of the following:</p>
+<ul>
+<li>we will test that <code>get_actors_with_bacon_number</code> can handle arbitrarily large Bacon numbers (not just <span class=""><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≤</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">n \leq 6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.77194em; vertical-align: -0.13597em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 0.64444em; vertical-align: 0em;"></span><span class="mord">6</span></span></span></span></span>)</li>
+<li>we will test <code>get_actors_with_bacon_number</code> with large numbers as input to make sure your code stops looking for actors as soon as we know there will not be any actors with the given Bacon number (instead of looping all the way to those large numbers)</li>
+<li>we will test <code>get_path</code> on a few pairs from the <code>large.json</code> database</li>
+<li>we will test <code>get_path</code> with a large Bacon number</li>
+<li>we will test <code>get_path</code> on a pair for which a path does not exist (but for which both actors are in the database)</li>
+</ul>
+<p>Submit your <code>lab.py</code> in the box below:</p>
+<p>
+<!--START question code -->
+</p><div class="question question-lab009" id="cs_qdiv_code" style="position: static">
+<div id="code_rendered_question">
+<input id="code" name="code" style="display: none" type="file"><button class="btn btn-catsoop" id="code_select_button">Select File</button>&nbsp;<tt><span id="code_selected_file">No file selected</span></tt>
+<script type="text/javascript">
+document.getElementById('code').value = '';
+document.getElementById('code_select_button').addEventListener('click', function (){
+    document.getElementById("code").click();
+});
+document.getElementById('code').addEventListener('change', function (){
+    document.getElementById('code_selected_file').innerText = document.getElementById('code').value;
+});
+</script>
+</div><div>
+<span id="code_buttons"></span>
+<span id="code_loading_wrapper">
+<span id="code_loading" style="display:none;"><img src="data:image/gif;base64,R0lGODlhEAAQAPIGAMLCwkJCQgAAAGJiYoKCgpKSkv///wAAACH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAGACwAAAAAEAAQAAADMmi63P4wyklrAyEAGoQInAdOmGYBw7AxwLoMGcG2rkHEQFHQLTsQOd2mB9ERCpTWzpEAACH5BAkKAAYALAAAAgAKAA4AAAMraAYRoNAEIUJUs97VHgTD4EVDQ2xEM2wgMV5AUbyKLKNEvoxA3P8sYNCQAAAh+QQJCgAGACwAAAAACgAOAAADLWi6EAFrBSGCAmQ0as1wROFABuEM0TUQ5FUU7fK+aRkWNYDFqV4bOl8v+BMuEgAh+QQJCgAGACwAAAAADgAKAAADKmi6QAMrrhECkaaVVl+FRiFuAwEEghAoYxGhqgI0oPxlNSbPOcb3PqAkAQAh+QQJCgAGACwCAAAADgAKAAADKWhqUAUrLuekApA+MiDD4BYExAVGwzgsmNR0lgWMXmwEghDYCq7zDFoCACH5BAkKAAYALAYAAAAKAA4AAAMqaADWros9GEuRUBE7jeUTYGEhMZANEQREN6xDJ54PsKJGIAhBp/OyWyMBACH5BAkKAAYALAYAAgAKAA4AAAMpaKoA+609Fie1C5Tipt7WRhRWw0ED0T1DEAyMq7mEEghCAKTdnZcySwIAIfkEBQoABgAsAgAGAA4ACgAAAytoumwALb4X2YR1URACVkBRYIEgBIw4KuUJDERIzGD3doMhfguBZyAYT5EAADs="></span>
+</span>
+<span id="code_score_display"></span>
+<div class="nsubmits_left" id="code_nsubmits_left"></div></div>
+<div id="code_solution_container">
+<div id="code_solution">
+</div>
+<div id="code_solution_explanation">
+</div>
+</div>
+<div id="code_message"></div>
+<span style="font-size: small; color: #888; font-weight: bold;">This question is due on Friday September 20, 2019 at 04:00:00 PM.</span></div>
+<!--END question code -->
+<p></p>
+<style>
+.impsolution{display:none;}
+</style>
+<a class="anchor" name="catsoop_section_8"></a><a class="anchor" name="_checkoff"></a><h2 class="cs_section_title">8) Checkoff</h2>
+<p>Once you are finished with the code, please come to a lab session or
+office hour and add yourself to the queue asking for a checkoff.  <strong>You must be
+ready to discuss your code in detail before asking for a checkoff.</strong> Since the clarity of your code will be evaluated as part of the checkoff, you may wish to take some time to comment your code, use good variable names, avoid repetitive code (create helper methods), etc.</p>
+<p>Be prepared to discuss:</p>
+<ul>
+<li>Your additional test cases in the <code>TestTiny</code> class.</li>
+<li>Your implementation of <code>get_actors_with_bacon_number</code>.</li>
+<li>Your implementation of <code>get_path</code> and <code>get_bacon_path</code>.</li>
+<li>How you computed paths of movies that connect two actors.</li>
+</ul>
+<p><a class="anchor" name="catsoop_section_8_1"></a><a class="anchor" name="_grade"></a></p><h3 class="cs_section_title">8.1) Grade</h3>
+<div class="response"><i>You have not yet received this checkoff.  When you have completed this checkoff, you will see a grade here.</i></div><p></p>
+<p><script type="text/javascript">
+$('button[id$=new_seed]').remove();
+</script></p>
+<script src="./Lab 2 - Bacon Number_files/cs_ajax.js.indir" type="text/javascript"></script>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3
+catsoop.all_questions = ['q000000', 'q000001', 'q000002', 'q000003', 'q000004', 'q000005', 'q000006', 'q000007', 'q000008', 'q000009', 'q000010', 'q000011', 'q000012', 'q000013', 'code'];
+catsoop.username = null;
+catsoop.api_token = null;
+catsoop.this_path = 'https://py.mit.edu/fall19/labs/lab2';
+catsoop.path_info = ['fall19', 'labs', 'lab2'];
+catsoop.course = 'fall19';
+catsoop.url_root = 'https://py.mit.edu';
+catsoop.imp = '';
+catsoop.skip_alert = [];
+catsoop.viewans_confirm = "Are you sure?  Viewing the answer will prevent any further submissions to this question.  Press 'OK' to view the answer, or press 'Cancel' if you have changed your mind.";
+
+// @license-end</script>
+</div>
+</div>
+<div class="cs_right_menu"></div>
+</main>
+<footer>
+<div class="cs_navigation cs_bottom_navigation" id="cs_bottom_navigation"><span class="line"><a href="https://py.mit.edu/fall19">Home</a></span> <span class="cs_nav_separator">/</span> <span class="line"><a href="https://py.mit.edu/fall19/labs/lab2">Lab 2: Bacon Number</a></span></div>
+<div class="cs_footer">
+<pre class="catsooplogo" style="font-size:50%;">\            
+/    /\__/\  
+\__=(  o_O )=
+(__________) 
+ |_ |_ |_ |_ </pre>
+      Powered by <a href="https://catsoop.org/" target="_blank">CAT-SOOP</a> v2020.2.0.dev76 ("Burmilla" development snapshot).<br>
+      CAT-SOOP is <a href="https://www.gnu.org/philosophy/free-sw.en.html" target="_blank">Free/Libre Software</a>, available under the terms<br>of the <a href="https://py.mit.edu/_util/license" target="_blank">GNU Affero General Public License, version 3</a>.<br>
+<a download="" href="https://py.mit.edu/_util/source.zip" target="_blank">Download Source Code</a><br>
+<a href="https://py.mit.edu/_util/jslicense.html" rel="jslicense" target="_blank">Javascript License Information</a>
+</div>
+</footer>
+
+
+
+</body></html>
