@@ -1,0 +1,123 @@
+substituteEquation(equation, substitutedVariable, substitutionEquation):
+
+	-First of all we have to create dictionary (lets say new_eq) to represent the 
+	substituted variable in terms of the other variables in the substitution equation:
+		-Take the coefficient of substitutedVariable from substitutionEquation and 
+		divide other variables with minus value of the coefficient and save the result to	
+		a new_eq dictionary
+
+	-Then combine new_eq dictionary and equation dictionary to create new equation 
+	(lets say resulting_eq) which represents the equation after the substitution:
+		-loop over the variables (keys) of equation dictionary:
+			-if variable is in both equation and new_eq dictionary
+			sum the coefficients and save the result to a result dictionary
+			-else just save the coefficient of the variable
+
+	-Return the resulting_eq
+
+Test Cases:
+substitutedVariable = 'x'
+substitutionEquation = {'x': 2, 'y': 1}
+
+--Test1
+equation1 = {'x': 1, 'y': 2, 'z': 4, 1: -1}
+expected1 = {'y': 1.5, 'z': 4, 1: -1} 
+
+--Test2
+equation2 = {'x': 2, 'y': 3, 'z': 4, 1: 5}
+expected2 = {'y': 2, 'z': 4, 1: 5}
+
+----------------------------------------------------------------------------
+
+solveLinear(variables, equations):
+	-To improve the performance of the function some initial operations has
+	to be made:
+		-Sort the list of equations in descending order according to the
+		length of each element
+		-Remove the elements which has 0 coefficient from the each equation
+	-By using a helper function that solves the system of equations recursively,
+	get the result and return it
+
+solveLinearRecursively(variables, equations):
+	-This function is a recursive function so we have to divide the steps:
+		-Base Case: This is simple the case where we have only one equation left
+		write the equation in terms of constant coefficient and return it
+		-Recursive Step:
+				-Choose and substitution eqn. and substituted variable
+				-Substitute this into other equations so eliminated one eqn. and variable
+				-Until reach a base case decrease number of eqn. each time.
+				-When a value is found for one of the variables substitute it into system to find
+				value of other variables and return the result
+
+Test Case:
+equations = [{'x': 1, 'y': 2, 'z': 4, 1: -1}, {'x': 2, 'y': 1}, {'x': 2, 'y': 3, 'z': 4, 1: 5}]
+variables = set(['x', 'y', 'z'])
+
+SolveCircuit concept question:
+[{'W0': ('C', 'A'), 'W1': ('A', 'B'), 'W2': ('B', 'C'), 'W3': ('B', 'C')},  #Start and end points of wires
+{'W0': 0, 'W1': 3, 'W2': 2, 'W3': 7}, #Values of resistances along wires
+{'W0': 5, 'W1': 0, 'W2': 0, 'W3': -10}] #Values of resistances along wires
+
+solveCircuit(junctions, wires, resistances, voltages):
+	-Use a helper function to create necessary equations that will be used to find Current values
+	-By using solveLinear function, find the current values
+	-Remove the voltage values and return the resulting dictionary
+
+createEquations(junctions, wires, resistances, voltages):
+	'''
+	By using KCL and Ohm's Law, create necessary equations to solve the circuit
+	'''
+	-Using a helper function, find KCL equations (getKclEquations)
+	-Using another helper function, get Ohm's Law equations (getOhmEquations)
+	-Merge KCL and Ohm equations into a single list and add an one additional equation (Equate one of the
+	voltage variables to zero) and return the resulting list
+
+getKclEquations(junctions, wires):
+	-Think Wire IDs as edges and junctions as start or end points:
+	-Create a dictionary where key is a junction name and value is a list (lets say this is our
+	junction graph). These lists contain 2-list in which first list represents input wires of junction and 
+	second list represents output wires of the junction
+	-Loop over wires:
+		-A wire consists of start and end points (junctions). If a junction is a starting point, wire is 
+		one of output wires of that junction so add this into output wire list of that junction
+		otherwise wire is one of input wires so add it to input wire list of that junction
+	-Now, by using junction graph create KCL equations where each equation is in the form of 
+	input wires - output wires = 0.
+	-Since we have j equations but need j-1 equations, remove one of them and return the result
+
+Test for getKclEquations:
+------------------------------
+junctions = {'A', 'B', 'C'}
+wires = {'W0': ('C', 'A'), 'W1': ('A', 'B'), 'W2': ('B', 'C'), 'W3': ('B', 'C')}
+expected = [{'I0': 1, 'I1': -1}, 
+	    {'I1': 1, 'I2': -1, 'I3': -1}, 
+	    {'I2': 1, 'I3': 1, 'I0': -1}]
+
+getOhmEquations(wires, resistances, voltages):
+	-Loop over wires:
+		-For each wire, create the ohm equation and add it to equations list
+	-return the resulting equation list
+
+Test for getOhmEquations:
+------------------------------
+wires = {'W0': ('C', 'A'), 'W1': ('A', 'B'), 'W2': ('B', 'C'), 'W3': ('B', 'C')}
+resistances = {'W0': 0, 'W1': 3, 'W2': 2, 'W3': 7}
+voltages = {'W0': 5, 'W1': 0, 'W2': 0, 'W3': -10}
+expected = [{'Va': 1, 'Vb': -1, 'Iw0': 0, 1: -5}
+	    {'Vb': 1, 'Va': -1, 'Iw0': 3, 1: 0}
+	    {'Vc': 1, 'Vb': -1, 'Iw0': 2, 1: 0}
+	    {'Vc': 1, 'Vb': -1, 'Iw0': 7, 1: 10}]
+
+findMaximumDeviationJunction(junctions, wires, resistances, voltages, currents):
+	-First off all, by using solveCircuit function, get the correct current values
+	-Then subtract the correct current values from the given currents dictionary.
+	-After that, create a junction graph and find the difference between input and output wires
+	of each junction. 
+	-Return the junction which has maximum absolute deviation value.
+
+###I have some problems about implementation of this function. Therefore, I will try to implement it later###
+findMaximumDeviationLoop(junctions, wires, resistances, voltages, currents):
+	-Make some manipulation, if a current on a wire is negative switch the junction points
+	-Calculate the potential differences on each wire by applying ohm's law
+	-Now find the all of the paths and at the same time find the maximum deviation loop
+################################################################################################3
