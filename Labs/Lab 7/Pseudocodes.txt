@@ -1,0 +1,34 @@
+Simplification
+--------------------
+simplify() should take no arguments, and it should return a simplified form of the expression, according to the
+following rules:
+
+	- Any binary operation on two numbers should simplify to a single number containing the result:
+		o Add(Num(6), Num(2)).simplify() ==> Num(8)
+		o Sub(Num(6), Num(2)).simplify() ==> Num(4)
+		o Mul(Num(6), Num(2)).simplify() ==> Num(12)
+		o Div(Num(6), Num(2)).simplify() ==> Num(3)
+
+	- Adding 0 to (or subtracting 0 from) any expression E should simplify to E:
+		o Add(Num(0), E).simplify() ==> E
+		o Add(E, Num(0)).simplify() ==> E
+		o Sub(E, Num(0)).simplify() ==> E
+
+	- Multiplying or dividing expression E by 1 should simplify to E:
+		o Mul(E, 1).simplify() ==> E
+		o Mul(1, E).simplify() ==> E
+		o Div(E, 1).simplify() ==> E
+
+	- Multiplying any expression E by 0 should simplify to 0:
+		o Mul(E, 0).simplify() ==> Num(0)
+		o Mul(0, E).simplify() ==> Num(0)
+
+	- Dividing 0 by any expression E should simplify to 0.
+		o Div(0, E).simplify() ==> Num(0)
+
+	- A single number or variable always simplifies to itself.
+		o Num(5).simplify() ==> Num(5)
+		o Var('x').simplify() ==> Var('x')
+
+***We have problem with the simplification of Add and Sub instances. Because, at the end of the function there is
+no check for Num(0) values, so at the end of the simplification all of the 0s gather we also have to remove them		
