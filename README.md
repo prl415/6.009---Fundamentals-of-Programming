@@ -1,3 +1,5 @@
 # 6.009---Fundamentals-of-Programming
-Solutions to quizzes and lab assignments
-jjjhjhkh
+- This repo contains solutions that I wrote for the labs, lecture and recitation notes that I studied on
+- Files that are bigger than 25 MB are divided and uploaded as zip file
+- In Labs folder, additional information about the labs can be found. If you want to explore the labs more, you can download and play around them with ui provided
+
