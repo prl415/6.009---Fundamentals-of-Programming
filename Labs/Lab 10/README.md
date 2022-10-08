@@ -1,1 +1,3 @@
-
+- This file contains solution for 6.009 Zoo - Part 2 Lab
+- In this lab, new additions are made to the game developed in Lab 9 
+- On an Apple Macbook Air M1/16 GB/8C - 8G system 21 tests are done in 1.351 seconds
