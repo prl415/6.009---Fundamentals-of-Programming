@@ -1,0 +1,3 @@
+-To prevent code repetition, create methods that are used by all classes inside the interface class. To do that,
+remove the abstractmethod decorator of the method. 
+-Node names will be unique string, edge weights will be nonnegative numbers.
