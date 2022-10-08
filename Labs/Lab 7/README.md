@@ -1,3 +1,3 @@
 - This file contains solution for Symbolic Algebra Lab
 - In this lab a symbolic algebra framework similar to the used in MATLAB are developed (A simplified version actually)
-- On an Apple Macbook Air M1/16 GB/8C - 8G system 17 tests are done in 0.684 seconds
+- On an Apple Macbook Air M1/16 GB/8C - 8G system 12 tests are done in 0.684 seconds
