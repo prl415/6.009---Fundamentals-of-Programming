@@ -1,1 +1,3 @@
-
+- This file contains solution for 6.009 Zoo Lab
+- In this lab a two dimensional tower defense like game are developed
+- On an Apple Macbook Air M1/16 GB/8C - 8G system 15 tests are done in 1.164 seconds
