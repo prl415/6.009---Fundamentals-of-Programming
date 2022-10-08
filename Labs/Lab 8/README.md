@@ -1,1 +1,3 @@
-
+- This file contains solution for Graphs, Paths, Matrices Lab
+- In this lab, two different two different implementations of an abstract, weighted graph interface are created
+- On an Apple Macbook Air M1/16 GB/8C - 8G system 60 tests are done in 29.124 seconds
